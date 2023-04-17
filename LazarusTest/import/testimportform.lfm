@@ -1,0 +1,75 @@
+object FormTestImport: TFormTestImport
+  Left = 932
+  Height = 664
+  Top = 262
+  Width = 809
+  ActiveControl = ButtonDeviceInfo
+  BorderStyle = bsDialog
+  Caption = 'Test Import'
+  ClientHeight = 664
+  ClientWidth = 809
+  DesignTimePPI = 120
+  Font.Height = 24
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.2.0.4'
+  object ButtonClose: TButton
+    Left = 456
+    Height = 76
+    Top = 24
+    Width = 320
+    Cancel = True
+    Caption = 'Close'
+    OnClick = ButtonCloseClick
+    TabOrder = 1
+  end
+  object LogText: TListBox
+    Left = 0
+    Height = 345
+    Top = 319
+    Width = 809
+    Align = alBottom
+    Font.Height = 24
+    Font.Name = 'Courier New'
+    ItemHeight = 0
+    ParentFont = False
+    TabOrder = 2
+  end
+  object ButtonDeviceInfo: TButton
+    Left = 32
+    Height = 76
+    Top = 24
+    Width = 320
+    Caption = 'Get Device Info'
+    Default = True
+    OnClick = ButtonDeviceInfoClick
+    TabOrder = 0
+  end
+  object ButtonGetList: TButton
+    Left = 32
+    Height = 76
+    Top = 112
+    Width = 320
+    Caption = 'Get List'
+    OnClick = ButtonGetListClick
+    TabOrder = 3
+  end
+  object pbBar: TProgressBar
+    Left = 0
+    Height = 25
+    Top = 294
+    Width = 809
+    Align = alBottom
+    Step = 1
+    TabOrder = 4
+  end
+  object ButtonGetMeasurement: TButton
+    Left = 32
+    Height = 76
+    Top = 200
+    Width = 320
+    Caption = 'Get Measurement'
+    OnClick = ButtonGetMeasurementClick
+    TabOrder = 5
+  end
+end

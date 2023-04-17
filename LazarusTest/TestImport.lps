@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="TestImport.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="27" Y="13"/>
+        <UsageCount Value="164"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testimportform.pas"/>
+        <ComponentName Value="FormTestImport"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestImportForm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="252"/>
+        <CursorPos X="5" Y="278"/>
+        <UsageCount Value="163"/>
+        <Bookmarks Count="1">
+          <Item0 X="42" Y="352"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkTypes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="416"/>
+        <CursorPos X="3" Y="435"/>
+        <UsageCount Value="164"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\linktestport.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LinkTestPort"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="194"/>
+        <CursorPos Y="217"/>
+        <UsageCount Value="164"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\testviewform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormViewMeasurement"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestViewForm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="45" Y="18"/>
+        <UsageCount Value="74"/>
+      </Unit>
+      <Unit>
+        <Filename Value="DEFS.PAS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="458"/>
+        <CursorPos Y="470"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkParamsDefs.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="108"/>
+        <CursorPos X="36" Y="127"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\VCUSBHdr.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="180"/>
+        <CursorPos Y="198"/>
+        <UsageCount Value="79"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkPortClass.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="763"/>
+        <CursorPos Y="795"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\fpcsrc\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="4" Y="37"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\fpcsrc\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="22"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\fpcsrc\rtl\objpas\sysutils\dati.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="330"/>
+        <CursorPos X="3" Y="332"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UTIL.PAS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="121"/>
+        <CursorPos X="26" Y="140"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkLang.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="101"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkUtil.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="50" Y="53"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\ImportViana2.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="62"/>
+        <CursorPos X="38" Y="80"/>
+        <UsageCount Value="34"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\ImportDefs.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="25"/>
+        <CursorPos X="42" Y="20"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkProtokol.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="33"/>
+        <CursorPos X="5" Y="59"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="configlevel.pas"/>
+        <UnitName Value="ConfigLevel"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="16"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="DBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="115"/>
+        <CursorPos X="35" Y="134"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="SELTREE.PAS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8"/>
+        <CursorPos X="60" Y="27"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\LinkTypesDiana2M.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="5" Y="127"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\ImportRasklad.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\lazarus\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="691"/>
+        <CursorPos X="14" Y="710"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\fpcsrc\rtl\win\sysutils.pp"/>
+        <UnitName Value="SysUtils"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="938"/>
+        <CursorPos Y="957"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\ImportKorsar.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="82"/>
+        <CursorPos X="145" Y="102"/>
+        <UsageCount Value="13"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\fpcsrc\rtl\objpas\sysutils\sysstr.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1142"/>
+        <CursorPos X="30" Y="1142"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Zamhdr.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="258"/>
+        <CursorPos Y="96"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\config_lazarus\onlinepackagemanager\packages\ct4laz\pl_components\pl_usb\source\libusbdyn.pas"/>
+        <UnitName Value="LibUsbDyn"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\NEWDateTime.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="126"/>
+        <CursorPos X="26" Y="145"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus\lazarus\lcl\include\progressbar.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="228"/>
+        <CursorPos X="3" Y="237"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="import\testimportform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormTestImport"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestImportForm"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit>
+    </Units>
+    <OtherDefines Count="2">
+      <Define0 Value="DianaProtocolOnly"/>
+      <Define1 Value="NeedImport"/>
+    </OtherDefines>
+    <JumpHistory HistoryIndex="11">
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="240" Column="39" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="20" Column="10" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="225" Column="5" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="26" Column="10" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="273" TopLine="255"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="258" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="260" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="273" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="260" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="import\linktestport.pas"/>
+        <Caret Line="259" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="import\LinkTypes.pas"/>
+        <Caret Line="444" Column="27" TopLine="424"/>
+      </Position>
+      <Position>
+        <Filename Value="import\LinkTypes.pas"/>
+        <Caret Line="458" Column="3" TopLine="439"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
