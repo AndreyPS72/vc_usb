@@ -1,7 +1,7 @@
 object FormTestImport: TFormTestImport
-  Left = 932
+  Left = -1363
   Height = 664
-  Top = 262
+  Top = 186
   Width = 809
   ActiveControl = ButtonDeviceInfo
   BorderStyle = bsDialog
@@ -12,6 +12,7 @@ object FormTestImport: TFormTestImport
   Font.Height = 24
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  Position = poScreenCenter
   LCLVersion = '2.2.0.4'
   object ButtonClose: TButton
     Left = 456

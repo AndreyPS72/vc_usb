@@ -246,7 +246,7 @@ begin
         //послать команду прибору и получить ответ
         result := SendCommandRepeat(Command,
             Param1, Param2, Param1dop, Param2dop,
-            @Frame, SizeOf(Frame));
+            @Frame, SizeOf(TLinkFrame));
         if result <> LinkResultOk then begin
             abort;
         end;

@@ -14,129 +14,129 @@ uses  LinkTypes
 
 
 
-// Тип замера
-const _Viana2_ztWaveform        = 0;     // Сигнал
-const _Viana2_ztSpectrum        = 1;     // Спектр
-const _Viana2_ztEnvelope        = 2;     // Огибающая
-const _Viana2_ztEnvSpectrum     = 3;     // Спектр огибающей
-const _Viana2_ztRMS             = 4;     // СКЗ
-const _Viana2_ztRMSTable        = 5;     // Таблица СКЗ
-const _Viana2_ztRUN_UP 			= 6;		// Разгон-Выбег
+// РўРёРї Р·Р°РјРµСЂР°
+const _Viana2_ztWaveform        = 0;     // РЎРёРіРЅР°Р»
+const _Viana2_ztSpectrum        = 1;     // РЎРїРµРєС‚СЂ
+const _Viana2_ztEnvelope        = 2;     // РћРіРёР±Р°СЋС‰Р°СЏ
+const _Viana2_ztEnvSpectrum     = 3;     // РЎРїРµРєС‚СЂ РѕРіРёР±Р°СЋС‰РµР№
+const _Viana2_ztRMS             = 4;     // РЎРљР—
+const _Viana2_ztRMSTable        = 5;     // РўР°Р±Р»РёС†Р° РЎРљР—
+const _Viana2_ztRUN_UP 			= 6;		// Р Р°Р·РіРѕРЅ-Р’С‹Р±РµРі
 
-const _Viana2_ztCount           = 7;     // Количество
+const _Viana2_ztCount           = 7;     // РљРѕР»РёС‡РµСЃС‚РІРѕ
 const _Viana2_ztVibro           = 4;
-const _Viana2_ztWavSp           = 2;	// Только сигнал и спектр
+const _Viana2_ztWavSp           = 2;	// РўРѕР»СЊРєРѕ СЃРёРіРЅР°Р» Рё СЃРїРµРєС‚СЂ
 
 
-//--- Размерность информации
-const  _Viana2_eiAcceleration    = 0;   // Ускорение, м/с2
-const  _Viana2_eiVelocity        = 1;   // Скорость, мм/с
-const  _Viana2_eiDisplacement    = 2;   // Перемещение, мкм
-const  _Viana2_eiVolt            = 3;   // Вольты, В
-const  _Viana2_eiTemp            = 4;   // Температура, град C
-const  _Viana2_eiFreq            = 5;   // Частота, Гц
-const  _Viana2_eiAMPER 			= 6;			// Ток, А
-const  _Viana2_eiUBAR 			= 7;			// микробар звукового давления для UHF микрофона
-const  _Viana2_eiDB 			= 8;			// дециБелл
-const  _Viana2_eiNONE 			= 9;			// о.е., нед надписи
+//--- Р Р°Р·РјРµСЂРЅРѕСЃС‚СЊ РёРЅС„РѕСЂРјР°С†РёРё
+const  _Viana2_eiAcceleration    = 0;   // РЈСЃРєРѕСЂРµРЅРёРµ, Рј/СЃ2
+const  _Viana2_eiVelocity        = 1;   // РЎРєРѕСЂРѕСЃС‚СЊ, РјРј/СЃ
+const  _Viana2_eiDisplacement    = 2;   // РџРµСЂРµРјРµС‰РµРЅРёРµ, РјРєРј
+const  _Viana2_eiVolt            = 3;   // Р’РѕР»СЊС‚С‹, Р’
+const  _Viana2_eiTemp            = 4;   // РўРµРјРїРµСЂР°С‚СѓСЂР°, РіСЂР°Рґ C
+const  _Viana2_eiFreq            = 5;   // Р§Р°СЃС‚РѕС‚Р°, Р“С†
+const  _Viana2_eiAMPER 			= 6;			// РўРѕРє, Рђ
+const  _Viana2_eiUBAR 			= 7;			// РјРёРєСЂРѕР±Р°СЂ Р·РІСѓРєРѕРІРѕРіРѕ РґР°РІР»РµРЅРёСЏ РґР»СЏ UHF РјРёРєСЂРѕС„РѕРЅР°
+const  _Viana2_eiDB 			= 8;			// РґРµС†РёР‘РµР»Р»
+const  _Viana2_eiNONE 			= 9;			// Рѕ.Рµ., РЅРµРґ РЅР°РґРїРёСЃРё
 
-const  _Viana2_eiCount           = 10; // Количество
+const  _Viana2_eiCount           = 10; // РљРѕР»РёС‡РµСЃС‚РІРѕ
 const  _Viana2_eiVibro           = 3;
 
 
-// Спектр, значение СКЗ - что показывать ? (Show Value)
-const _Viana2_svPeak_True       = 0;	// Пик по сигналу    
-const _Viana2_svPP_True         = 1;    // Пик-Пик, Размах по сигналу
-const _Viana2_svRMS_True        = 2;    // СКЗ по сигналу без окна, только железные фильтры
-const _Viana2_svRMS_Wnd         = 3;    // СКЗ по спектру с окном 10..1000Гц, для перемещения 10..300Гц
-const _Viana2_svZERO_LINE       = 5;    // Смещение нулевой линии
-const _Viana2_svGE 				= 6;		// Пик по каналу Acc Ge (Acc 500Hz..10kHz; SKF gE), м/с2
+// РЎРїРµРєС‚СЂ, Р·РЅР°С‡РµРЅРёРµ РЎРљР— - С‡С‚Рѕ РїРѕРєР°Р·С‹РІР°С‚СЊ ? (Show Value)
+const _Viana2_svPeak_True       = 0;	// РџРёРє РїРѕ СЃРёРіРЅР°Р»Сѓ    
+const _Viana2_svPP_True         = 1;    // РџРёРє-РџРёРє, Р Р°Р·РјР°С… РїРѕ СЃРёРіРЅР°Р»Сѓ
+const _Viana2_svRMS_True        = 2;    // РЎРљР— РїРѕ СЃРёРіРЅР°Р»Сѓ Р±РµР· РѕРєРЅР°, С‚РѕР»СЊРєРѕ Р¶РµР»РµР·РЅС‹Рµ С„РёР»СЊС‚СЂС‹
+const _Viana2_svRMS_Wnd         = 3;    // РЎРљР— РїРѕ СЃРїРµРєС‚СЂСѓ СЃ РѕРєРЅРѕРј 10..1000Р“С†, РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ 10..300Р“С†
+const _Viana2_svZERO_LINE       = 5;    // РЎРјРµС‰РµРЅРёРµ РЅСѓР»РµРІРѕР№ Р»РёРЅРёРё
+const _Viana2_svGE 				= 6;		// РџРёРє РїРѕ РєР°РЅР°Р»Сѓ Acc Ge (Acc 500Hz..10kHz; SKF gE), Рј/СЃ2
 const _Viana2_svSUM2          	= 7;    // sum a^2
 const _Viana2_svSUM4          	= 8;    // sum a^4
-const _Viana2_svALLX 			= 9;		// Количество отсчётов в сигнале для расчёта
+const _Viana2_svALLX 			= 9;		// РљРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚СЃС‡С‘С‚РѕРІ РІ СЃРёРіРЅР°Р»Рµ РґР»СЏ СЂР°СЃС‡С‘С‚Р°
 
-// для канала отметчика CH_TACH
-const _Viana2_svFREQ 			= 10;		// Частота, Гц
+// РґР»СЏ РєР°РЅР°Р»Р° РѕС‚РјРµС‚С‡РёРєР° CH_TACH
+const _Viana2_svFREQ 			= 10;		// Р§Р°СЃС‚РѕС‚Р°, Р“С†
 
-// Для модального анализа CH_FRF = CH_1:
-const _Viana2_svMODAL_FREQ1 	= 11;	// Natural Frequency 1-ой моды
-const _Viana2_svMODAL_DLF1 		= 12;	// Damping Loss Factor 1-ой моды
+// Р”Р»СЏ РјРѕРґР°Р»СЊРЅРѕРіРѕ Р°РЅР°Р»РёР·Р° CH_FRF = CH_1:
+const _Viana2_svMODAL_FREQ1 	= 11;	// Natural Frequency 1-РѕР№ РјРѕРґС‹
+const _Viana2_svMODAL_DLF1 		= 12;	// Damping Loss Factor 1-РѕР№ РјРѕРґС‹
 
-const _Viana2_svRE1           	= 26;   // Real 1 гармоники (Peak)
-const _Viana2_svIM1           	= 27;   // Image 1 гармоники (Peak)
-const _Viana2_svRE2           	= 28;   // Real 2 гармоники (Peak)
-const _Viana2_svIM2           	= 29;   // Image 2 гармоники (Peak)
-const _Viana2_svRE3           	= 30;   // Real 3 гармоники (Peak)
-const _Viana2_svIM3           	= 31;   // Image 3 гармоники (Peak)
+const _Viana2_svRE1           	= 26;   // Real 1 РіР°СЂРјРѕРЅРёРєРё (Peak)
+const _Viana2_svIM1           	= 27;   // Image 1 РіР°СЂРјРѕРЅРёРєРё (Peak)
+const _Viana2_svRE2           	= 28;   // Real 2 РіР°СЂРјРѕРЅРёРєРё (Peak)
+const _Viana2_svIM2           	= 29;   // Image 2 РіР°СЂРјРѕРЅРёРєРё (Peak)
+const _Viana2_svRE3           	= 30;   // Real 3 РіР°СЂРјРѕРЅРёРєРё (Peak)
+const _Viana2_svIM3           	= 31;   // Image 3 РіР°СЂРјРѕРЅРёРєРё (Peak)
 
 const _Viana2_svCOUNT          	= 32;
 
-// Вычисляемые через другие параметры
-const _Viana2_svCALCULATED_MASK          	= 32;	// Маска, что значение вычисляемое через другие параметры
+// Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ С‡РµСЂРµР· РґСЂСѓРіРёРµ РїР°СЂР°РјРµС‚СЂС‹
+const _Viana2_svCALCULATED_MASK          	= 32;	// РњР°СЃРєР°, С‡С‚Рѕ Р·РЅР°С‡РµРЅРёРµ РІС‹С‡РёСЃР»СЏРµРјРѕРµ С‡РµСЂРµР· РґСЂСѓРіРёРµ РїР°СЂР°РјРµС‚СЂС‹
 
-const _Viana2_svPEAK_EQ 	= _Viana2_svPEAK_TRUE or _Viana2_svCALCULATED_MASK;	// Пик эквивалентный = svRMSTrue * M_SQRT2
-const _Viana2_svPP_EQ 		= _Viana2_svPP_TRUE or _Viana2_svCALCULATED_MASK;		// Пик-Пик Экв, Размах эквивалентный = svRMSTrue * M_SQRT2 * 2
-const _Viana2_svRMS_WND2014 = _Viana2_svRMS_WND or _Viana2_svCALCULATED_MASK;	// СКЗ по спектру со странным окном по новому ГОСТ 2954-2014
-const _Viana2_svCREST_FACTOR = _Viana2_svSUM2 or _Viana2_svCALCULATED_MASK;	// Пик-фактор через svSum2
-const _Viana2_svEXCESS 		= _Viana2_svSUM4 or _Viana2_svCALCULATED_MASK;			// Эксцесс через svSum4 / svSum2
-const _Viana2_svAMPL1 		= _Viana2_svRE1 or _Viana2_svCALCULATED_MASK;			// Ампл 1 гармоники (Peak) (через Re1 Im1)
-const _Viana2_svPHASE1 		= _Viana2_svIM1 or _Viana2_svCALCULATED_MASK;			// Фаза 1 гармоники (Degr) (через Re1 Im1)
-const _Viana2_svAMPL2 		= _Viana2_svRE2 or _Viana2_svCALCULATED_MASK;			// Ампл 2 гармоники (Peak) (через Re2 Im2)
-const _Viana2_svPHASE2 		= _Viana2_svIM2 or _Viana2_svCALCULATED_MASK;			// Фаза 2 гармоники (Degr) (через Re2 Im2)
-const _Viana2_svAMPL3 		= _Viana2_svRE3 or _Viana2_svCALCULATED_MASK;			// Ампл 3 гармоники (Peak) (через Re3 Im2)
-const _Viana2_svPHASE3 		= _Viana2_svIM3 or _Viana2_svCALCULATED_MASK;			// Фаза 3 гармоники (Degr) (через Re3 Im2)
+const _Viana2_svPEAK_EQ 	= _Viana2_svPEAK_TRUE or _Viana2_svCALCULATED_MASK;	// РџРёРє СЌРєРІРёРІР°Р»РµРЅС‚РЅС‹Р№ = svRMSTrue * M_SQRT2
+const _Viana2_svPP_EQ 		= _Viana2_svPP_TRUE or _Viana2_svCALCULATED_MASK;		// РџРёРє-РџРёРє Р­РєРІ, Р Р°Р·РјР°С… СЌРєРІРёРІР°Р»РµРЅС‚РЅС‹Р№ = svRMSTrue * M_SQRT2 * 2
+const _Viana2_svRMS_WND2014 = _Viana2_svRMS_WND or _Viana2_svCALCULATED_MASK;	// РЎРљР— РїРѕ СЃРїРµРєС‚СЂСѓ СЃРѕ СЃС‚СЂР°РЅРЅС‹Рј РѕРєРЅРѕРј РїРѕ РЅРѕРІРѕРјСѓ Р“РћРЎРў 2954-2014
+const _Viana2_svCREST_FACTOR = _Viana2_svSUM2 or _Viana2_svCALCULATED_MASK;	// РџРёРє-С„Р°РєС‚РѕСЂ С‡РµСЂРµР· svSum2
+const _Viana2_svEXCESS 		= _Viana2_svSUM4 or _Viana2_svCALCULATED_MASK;			// Р­РєСЃС†РµСЃСЃ С‡РµСЂРµР· svSum4 / svSum2
+const _Viana2_svAMPL1 		= _Viana2_svRE1 or _Viana2_svCALCULATED_MASK;			// РђРјРїР» 1 РіР°СЂРјРѕРЅРёРєРё (Peak) (С‡РµСЂРµР· Re1 Im1)
+const _Viana2_svPHASE1 		= _Viana2_svIM1 or _Viana2_svCALCULATED_MASK;			// Р¤Р°Р·Р° 1 РіР°СЂРјРѕРЅРёРєРё (Degr) (С‡РµСЂРµР· Re1 Im1)
+const _Viana2_svAMPL2 		= _Viana2_svRE2 or _Viana2_svCALCULATED_MASK;			// РђРјРїР» 2 РіР°СЂРјРѕРЅРёРєРё (Peak) (С‡РµСЂРµР· Re2 Im2)
+const _Viana2_svPHASE2 		= _Viana2_svIM2 or _Viana2_svCALCULATED_MASK;			// Р¤Р°Р·Р° 2 РіР°СЂРјРѕРЅРёРєРё (Degr) (С‡РµСЂРµР· Re2 Im2)
+const _Viana2_svAMPL3 		= _Viana2_svRE3 or _Viana2_svCALCULATED_MASK;			// РђРјРїР» 3 РіР°СЂРјРѕРЅРёРєРё (Peak) (С‡РµСЂРµР· Re3 Im2)
+const _Viana2_svPHASE3 		= _Viana2_svIM3 or _Viana2_svCALCULATED_MASK;			// Р¤Р°Р·Р° 3 РіР°СЂРјРѕРЅРёРєРё (Degr) (С‡РµСЂРµР· Re3 Im2)
 
 const _Viana2_svCOUNT_CALC 	= _Viana2_svCOUNT + _Viana2_svCALCULATED_MASK;
 
 
 
 
-// Состояние
-const _Viana2_stateNone    = 0; // Нет состояния
+// РЎРѕСЃС‚РѕСЏРЅРёРµ
+const _Viana2_stateNone    = 0; // РќРµС‚ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 const _Viana2_stateGreen   = 1;
 const _Viana2_stateYellow  = 2;
 const _Viana2_stateRed     = 3;
-const _Viana2_stateUnknown = 4;	// Неизвестно, не вычисленно, обычно для значения ==0
+const _Viana2_stateUnknown = 4;	// РќРµРёР·РІРµСЃС‚РЅРѕ, РЅРµ РІС‹С‡РёСЃР»РµРЅРЅРѕ, РѕР±С‹С‡РЅРѕ РґР»СЏ Р·РЅР°С‡РµРЅРёСЏ ==0
 const _Viana2_stateCount   = 5;
 
 
 
 
-// Нормы по виброскорости (NormsVel)
+// РќРѕСЂРјС‹ РїРѕ РІРёР±СЂРѕСЃРєРѕСЂРѕСЃС‚Рё (NormsVel)
 const _Viana2_NORMS_VEL_COUNT = 13;
 const _Viana2_NormsVel: array [0.._Viana2_NORMS_VEL_COUNT-1] of Single = ( 0.0,0.28,0.45,0.71,1.12,1.8,2.8,4.5,7.1,11.2,18.0,28.0,45.0 );
 
 
 
-// TTable.DataFormat - Формат представления отсчётов в TTable.OffT
+// TTable.DataFormat - Р¤РѕСЂРјР°С‚ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РѕС‚СЃС‡С‘С‚РѕРІ РІ TTable.OffT
 // MeasurementDataFormat
-const _Viana2_dfINT16_VALUE 	= 0;		// int16_t, 2 байта на отсчёт, нужно умножить на TTable.Scale
-const _Viana2_dfINT32_VALUE 	= 1;		// int32_t, 4 байта, нужно умножить на TTable.Scale
-const _Viana2_dfFLOAT_VALUE 	= 2;		// float, 4 байта, реальное амплитудное значение (сигнал или спектр), TTable.Scale не используется
-const _Viana2_dfDOUBLE_VALUE 	= 3;		// double, 8 байт, реальное амплитудное значение (сигнал или спектр), TTable.Scale не используется
-const _Viana2_dfMASK_VALUE 		= 7;		// маска определения типа данных
-// Дополнительные Маски:
-const _Viana2_dfCOMLEX_VALUE 	= $40;		// complex, x2 байт, например, комплексный спектр, Re+Im
-const _Viana2_dfLOG_VALUE 		= $80;		// десятичный логарифм значения
+const _Viana2_dfINT16_VALUE 	= 0;		// int16_t, 2 Р±Р°Р№С‚Р° РЅР° РѕС‚СЃС‡С‘С‚, РЅСѓР¶РЅРѕ СѓРјРЅРѕР¶РёС‚СЊ РЅР° TTable.Scale
+const _Viana2_dfINT32_VALUE 	= 1;		// int32_t, 4 Р±Р°Р№С‚Р°, РЅСѓР¶РЅРѕ СѓРјРЅРѕР¶РёС‚СЊ РЅР° TTable.Scale
+const _Viana2_dfFLOAT_VALUE 	= 2;		// float, 4 Р±Р°Р№С‚Р°, СЂРµР°Р»СЊРЅРѕРµ Р°РјРїР»РёС‚СѓРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ (СЃРёРіРЅР°Р» РёР»Рё СЃРїРµРєС‚СЂ), TTable.Scale РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
+const _Viana2_dfDOUBLE_VALUE 	= 3;		// double, 8 Р±Р°Р№С‚, СЂРµР°Р»СЊРЅРѕРµ Р°РјРїР»РёС‚СѓРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ (СЃРёРіРЅР°Р» РёР»Рё СЃРїРµРєС‚СЂ), TTable.Scale РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
+const _Viana2_dfMASK_VALUE 		= 7;		// РјР°СЃРєР° РѕРїСЂРµРґРµР»РµРЅРёСЏ С‚РёРїР° РґР°РЅРЅС‹С…
+// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РњР°СЃРєРё:
+const _Viana2_dfCOMLEX_VALUE 	= $40;		// complex, x2 Р±Р°Р№С‚, РЅР°РїСЂРёРјРµСЂ, РєРѕРјРїР»РµРєСЃРЅС‹Р№ СЃРїРµРєС‚СЂ, Re+Im
+const _Viana2_dfLOG_VALUE 		= $80;		// РґРµСЃСЏС‚РёС‡РЅС‹Р№ Р»РѕРіР°СЂРёС„Рј Р·РЅР°С‡РµРЅРёСЏ
 
 
 
 
 
 
-// Max теоретически возможное число каналов
+// Max С‚РµРѕСЂРµС‚РёС‡РµСЃРєРё РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ
 const _Viana2_CHANNEL_COUNT = 3;
 
-// Тип входа, порядок окон на экране
-const _Viana2_CH_1 = 0;		// канал 1
-const _Viana2_CH_2 = 1;		// канал 2
-const _Viana2_CH_TACH = 2;	// Отметчик
+// РўРёРї РІС…РѕРґР°, РїРѕСЂСЏРґРѕРє РѕРєРѕРЅ РЅР° СЌРєСЂР°РЅРµ
+const _Viana2_CH_1 = 0;		// РєР°РЅР°Р» 1
+const _Viana2_CH_2 = 1;		// РєР°РЅР°Р» 2
+const _Viana2_CH_TACH = 2;	// РћС‚РјРµС‚С‡РёРє
 
-const _Viana2_CH_VIBRO = 2; // 2 виброканала
+const _Viana2_CH_VIBRO = 2; // 2 РІРёР±СЂРѕРєР°РЅР°Р»Р°
 const _Viana2_CH_COUNT = _Viana2_CHANNEL_COUNT;
 
 
-const _Viana2_MAX_POINT_RECORDER = 512 * 1024; //максимальное число точек в данных длинного замера
+const _Viana2_MAX_POINT_RECORDER = 512 * 1024; //РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ С‚РѕС‡РµРє РІ РґР°РЅРЅС‹С… РґР»РёРЅРЅРѕРіРѕ Р·Р°РјРµСЂР°
 
 
 //const _Viana2_ADC_FREQUENCY = 25600.0;
@@ -146,9 +146,9 @@ const _Viana2_MAX_POINT_RECORDER = 512 * 1024; //максимальное число точек в данн
 
 
 
-// Настройки измерения TMeasureSetup
+// РќР°СЃС‚СЂРѕР№РєРё РёР·РјРµСЂРµРЅРёСЏ TMeasureSetup
 
-// MeasurementMode: Что измеряем (Соответствует окну в главном меню) ?
+// MeasurementMode: Р§С‚Рѕ РёР·РјРµСЂСЏРµРј (РЎРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РѕРєРЅСѓ РІ РіР»Р°РІРЅРѕРј РјРµРЅСЋ) ?
 const _Viana2_SETUP_MSM_WAVEFORM = 0;
 const _Viana2_SETUP_MSM_RMS = 1;
 const _Viana2_SETUP_MSM_ROUTE = 2;
@@ -164,17 +164,17 @@ const _Viana2_SETUP_MSM_COUNT = 11;
 
 
 
-// Path: Какой аналоговый канал
+// Path: РљР°РєРѕР№ Р°РЅР°Р»РѕРіРѕРІС‹Р№ РєР°РЅР°Р»
 const _Viana2_SETUP_MSP_DEFAULT = 0;	// SETUP_MSP_STD
-const _Viana2_SETUP_MSP_STD	=1;	// стандартный 3Hz..10kHz
-const _Viana2_SETUP_MSP_SLOW	=2;	// медленный 0,5Hz..50Hz
-const _Viana2_SETUP_MSP_ENV	=3;	// Огибающая 500Hz..10kHz
-const _Viana2_SETUP_MSP_UHF	=4;	// UHF датчик на канале отметчика
+const _Viana2_SETUP_MSP_STD	=1;	// СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ 3Hz..10kHz
+const _Viana2_SETUP_MSP_SLOW	=2;	// РјРµРґР»РµРЅРЅС‹Р№ 0,5Hz..50Hz
+const _Viana2_SETUP_MSP_ENV	=3;	// РћРіРёР±Р°СЋС‰Р°СЏ 500Hz..10kHz
+const _Viana2_SETUP_MSP_UHF	=4;	// UHF РґР°С‚С‡РёРє РЅР° РєР°РЅР°Р»Рµ РѕС‚РјРµС‚С‡РёРєР°
 const _Viana2_SETUP_MSP_COUNT	=4;
-const _Viana2_SETUP_MSP_MUX = 5;	// Определяется полем Mux
+const _Viana2_SETUP_MSP_MUX = 5;	// РћРїСЂРµРґРµР»СЏРµС‚СЃСЏ РїРѕР»РµРј Mux
 
 
-// Channels: какие каналы использовать в измерении
+// Channels: РєР°РєРёРµ РєР°РЅР°Р»С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІ РёР·РјРµСЂРµРЅРёРё
 const _Viana2_SETUP_MSC_DEFAULT = 0; // SETUP_MSC_CH1
 const _Viana2_SETUP_MSC_CH1  =1;
 const _Viana2_SETUP_MSC_CH1T =2;
@@ -191,10 +191,10 @@ const _Viana2_SETUP_MSU_ACCELERATION = 1;
 const _Viana2_SETUP_MSU_VELOCITY = 2;
 const _Viana2_SETUP_MSU_DISPLACEMENT = 3;
 const _Viana2_SETUP_MSU_COUNT = 3;
-const _Viana2_SETUP_MSU_MUX = 4;	// Определяется полем Mux
+const _Viana2_SETUP_MSU_MUX = 4;	// РћРїСЂРµРґРµР»СЏРµС‚СЃСЏ РїРѕР»РµРј Mux
 
 
-// Type: Тип данных
+// Type: РўРёРї РґР°РЅРЅС‹С…
 const _Viana2_SETUP_MST_DEFAULT = 0;	// SETUP_MST_SPECTRUM1000
 const _Viana2_SETUP_MST_SPECTRUM1000 = 1;
 const _Viana2_SETUP_MST_SPECTRUM = 2;
@@ -216,22 +216,22 @@ const _Viana2_SETUP_ALLF_3200		= 3;
 const _Viana2_SETUP_ALLF_25600 = 4;
 const _Viana2_SETUP_ALLF_COUNT = 4;
 
-// dX: Частота семплирования в сигнале
+// dX: Р§Р°СЃС‚РѕС‚Р° СЃРµРјРїР»РёСЂРѕРІР°РЅРёСЏ РІ СЃРёРіРЅР°Р»Рµ
 const _Viana2_SETUP_DX_DEFAULT = 0;	// SETUP_DX_2560_HZ
-const _Viana2_SETUP_DX_25600_HZ	= 1;	// 25600 Гц
-const _Viana2_SETUP_DX_6400_HZ = 2;	// 6400 Гц
-const _Viana2_SETUP_DX_2560_HZ = 3;	// 2560 Гц
-const _Viana2_SETUP_DX_640_HZ = 4;	// 640 Гц
-const _Viana2_SETUP_DX_256_HZ = 5;	// 256 Гц
+const _Viana2_SETUP_DX_25600_HZ	= 1;	// 25600 Р“С†
+const _Viana2_SETUP_DX_6400_HZ = 2;	// 6400 Р“С†
+const _Viana2_SETUP_DX_2560_HZ = 3;	// 2560 Р“С†
+const _Viana2_SETUP_DX_640_HZ = 4;	// 640 Р“С†
+const _Viana2_SETUP_DX_256_HZ = 5;	// 256 Р“С†
 const _Viana2_SETUP_DX_COUNT		= 5;
 
-// Верхняя частота в спектре
+// Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚РѕС‚Р° РІ СЃРїРµРєС‚СЂРµ
 const _Viana2_SETUP_FN_DEFAULT = 0;	// SETUP_FN_1000_HZ
-const _Viana2_SETUP_FN_10000_HZ = _Viana2_SETUP_DX_25600_HZ;	// 10000 Гц
-const _Viana2_SETUP_FN_2500_HZ = _Viana2_SETUP_DX_6400_HZ;	// 2500 Гц
-const _Viana2_SETUP_FN_1000_HZ = _Viana2_SETUP_DX_2560_HZ;	// 1000 Гц
-const _Viana2_SETUP_FN_250_HZ = _Viana2_SETUP_DX_640_HZ;		// 250 Гц
-const _Viana2_SETUP_FN_100_HZ = _Viana2_SETUP_DX_256_HZ;		// 100 Гц
+const _Viana2_SETUP_FN_10000_HZ = _Viana2_SETUP_DX_25600_HZ;	// 10000 Р“С†
+const _Viana2_SETUP_FN_2500_HZ = _Viana2_SETUP_DX_6400_HZ;	// 2500 Р“С†
+const _Viana2_SETUP_FN_1000_HZ = _Viana2_SETUP_DX_2560_HZ;	// 1000 Р“С†
+const _Viana2_SETUP_FN_250_HZ = _Viana2_SETUP_DX_640_HZ;		// 250 Р“С†
+const _Viana2_SETUP_FN_100_HZ = _Viana2_SETUP_DX_256_HZ;		// 100 Р“С†
 const _Viana2_SETUP_FN_COUNT = _Viana2_SETUP_DX_COUNT;
 
 
@@ -262,14 +262,14 @@ const _Viana2_SETUP_AUTO_SAVE			= 2;
 const _Viana2_SETUP_AUTO_SAVE_COUNT	= 2;
 
 
-const _Viana2_SETUP_EXTERNAL_SENSOR	= 0;	// Сигнал подаётся с датчика
-const _Viana2_SETUP_INTERNAL_DAC		= 1;	// Сигнал подаётся с внутреннего ЦАП - используется для внутренних тестов
+const _Viana2_SETUP_EXTERNAL_SENSOR	= 0;	// РЎРёРіРЅР°Р» РїРѕРґР°С‘С‚СЃСЏ СЃ РґР°С‚С‡РёРєР°
+const _Viana2_SETUP_INTERNAL_DAC		= 1;	// РЎРёРіРЅР°Р» РїРѕРґР°С‘С‚СЃСЏ СЃ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ Р¦РђРџ - РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РІРЅСѓС‚СЂРµРЅРЅРёС… С‚РµСЃС‚РѕРІ
 
-const _Viana2_SETUP_MODE_READ			= 0;	// Режим измерения
-const _Viana2_SETUP_MODE_CALIBRATION	= 1;	// Режим калибровки - только для производителя
+const _Viana2_SETUP_MODE_READ			= 0;	// Р РµР¶РёРј РёР·РјРµСЂРµРЅРёСЏ
+const _Viana2_SETUP_MODE_CALIBRATION	= 1;	// Р РµР¶РёРј РєР°Р»РёР±СЂРѕРІРєРё - С‚РѕР»СЊРєРѕ РґР»СЏ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ
 
 
-// Номера входов MUX
+// РќРѕРјРµСЂР° РІС…РѕРґРѕРІ MUX
 const _Viana2_SETUP_MUX_STD_ACC	= 0; // std 3..10kHz
 const _Viana2_SETUP_MUX_STD_VEL	= 1; // std 3..10kHz
 const _Viana2_SETUP_MUX_STD_DISP	= 2; // std 3..10kHz
@@ -281,35 +281,35 @@ const _Viana2_SETUP_MUX_SLOW_DISP	= 7; // slow 0,5..50Hz
 const _Viana2_SETUP_MUX_COUNT		= 8;
 
 
-// Текущие настройки чтения
+// РўРµРєСѓС‰РёРµ РЅР°СЃС‚СЂРѕР№РєРё С‡С‚РµРЅРёСЏ
 Type _Viana2_TMeasureSetup = record
 
-	Changed	: longword;	// 1 = MeasureSetup изменился, передать в Hardware
+	Changed	: longword;	// 1 = MeasureSetup РёР·РјРµРЅРёР»СЃСЏ, РїРµСЂРµРґР°С‚СЊ РІ Hardware
 
-	MeasurementMode	: longword;	// Что измеряем, SETUP_MSM_xxx
+	MeasurementMode	: longword;	// Р§С‚Рѕ РёР·РјРµСЂСЏРµРј, SETUP_MSM_xxx
 
-	// Все параметры от 1 до N - соответствуют позиции скроллера в настройке
+	// Р’СЃРµ РїР°СЂР°РјРµС‚СЂС‹ РѕС‚ 1 РґРѕ N - СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‚ РїРѕР·РёС†РёРё СЃРєСЂРѕР»Р»РµСЂР° РІ РЅР°СЃС‚СЂРѕР№РєРµ
 	Path	: longword;		// SETUP_MSP_xxx
 	Channels	: longword;	// SETUP_MSC_xxx
 	Units	: longword;		// SETUP_MSU_xxx
 	Types	: longword;		// SETUP_MST_xxx
 
-	dX	: longword;		// SETUP_DX_xxx или SETUP_FN_xxx
-	AllX	: longword;		// SETUP_ALLX_xxx или SETUP_ALLF_xxx
+	dX	: longword;		// SETUP_DX_xxx РёР»Рё SETUP_FN_xxx
+	AllX	: longword;		// SETUP_ALLX_xxx РёР»Рё SETUP_ALLF_xxx
 
 	Avg	: longword;		// SETUP_AVG_xxx
 	AutoSave	: longword;	// SETUP_AUTO_SAVE_xxx
 
 
-	// Эти только для внутреннего использования:
-	InternalDAC	: longword; // Переключение канала: 0 - Вход с датчиков, 1 - DAC
-	CalibrationMode	: longword; // 0 - Работа, 1 - Калибровка
+	// Р­С‚Рё С‚РѕР»СЊРєРѕ РґР»СЏ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ:
+	InternalDAC	: longword; // РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РєР°РЅР°Р»Р°: 0 - Р’С…РѕРґ СЃ РґР°С‚С‡РёРєРѕРІ, 1 - DAC
+	CalibrationMode	: longword; // 0 - Р Р°Р±РѕС‚Р°, 1 - РљР°Р»РёР±СЂРѕРІРєР°
 
-							  // Для тестирования и калибровки
-	FreqSin	: single;	// Частота, Гц
-	AmplSin	: single;	// Амплитуда ЦАП, мВольт
+							  // Р”Р»СЏ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ Рё РєР°Р»РёР±СЂРѕРІРєРё
+	FreqSin	: single;	// Р§Р°СЃС‚РѕС‚Р°, Р“С†
+	AmplSin	: single;	// РђРјРїР»РёС‚СѓРґР° Р¦РђРџ, РјР’РѕР»СЊС‚
 
-	// Если (Path == SETUP_MSP_MUX) или (Units == SETUP_MSU_MUX), то канал MUX берётся из этого поля
+	// Р•СЃР»Рё (Path == SETUP_MSP_MUX) РёР»Рё (Units == SETUP_MSU_MUX), С‚Рѕ РєР°РЅР°Р» MUX Р±РµСЂС‘С‚СЃСЏ РёР· СЌС‚РѕРіРѕ РїРѕР»СЏ
 	Mux	: longword;	// SETUP_MUX_xxx
 
 	Reserv	: longword;
@@ -324,13 +324,13 @@ const sz_Viana2_TMeasureSetup = sizeof(_Viana2_TMeasureSetup); // 64
 
 
 
-const FILE_VERSION_VIANA2_0100    = $C710; // Новая версия файла 1.0
+const FILE_VERSION_VIANA2_0100    = $C710; // РќРѕРІР°СЏ РІРµСЂСЃРёСЏ С„Р°Р№Р»Р° 1.0
 const FILE_VERSION_VIANA2_CURRENT = FILE_VERSION_VIANA2_0100;
 
 
 
 
-//       u32 Exist; // 0 -  нет; 1 - сигнал c железного канала; 2 - преобразованный
+//       u32 Exist; // 0 -  РЅРµС‚; 1 - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2 - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
 const _Viana2_teNo       = 0;
 const _Viana2_teHard     = 1;
 const _Viana2_teSoft     = 2;
@@ -341,8 +341,8 @@ Type _Viana2_TDateTime = longword;
 
 Type _Viana2_TTable = record
 
-       Exist      : longword; // 0 -  нет; 1 - сигнал c железного канала; 2 - преобразованный
-       DT         : _Viana2_TDateTime;       //Время и дата проведения замера
+       Exist      : longword; // 0 -  РЅРµС‚; 1 - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2 - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
+       DT         : _Viana2_TDateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
        Types      : longword;
        Units      : longword;
@@ -353,24 +353,24 @@ Type _Viana2_TTable = record
        XN         : single;
 
 
-		AmplMax	: single;   // Максимальное значение в сигнале
-		AmplMin	: single;   // Минимальное значение в сигнале
+		AmplMax	: single;   // РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРёРіРЅР°Р»Рµ
+		AmplMin	: single;   // РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРёРіРЅР°Р»Рµ
 
        Scale      : single;
 
-       OffT       : longword;	// Смещение данных канала в файле или адрес в памяти
-       OffTx64	  : longword;	// Запас для адреса x64
+       OffT       : longword;	// РЎРјРµС‰РµРЅРёРµ РґР°РЅРЅС‹С… РєР°РЅР°Р»Р° РІ С„Р°Р№Р»Рµ РёР»Рё Р°РґСЂРµСЃ РІ РїР°РјСЏС‚Рё
+       OffTx64	  : longword;	// Р—Р°РїР°СЃ РґР»СЏ Р°РґСЂРµСЃР° x64
 
         Reserv1		: array [0..1] of byte;
-        DataFormat	: byte;		// Формат представления отсчётов в OffT - MeasurementDataFormat::XXX
-        DrawOptions	: byte;	// Как отрисовывать график - DrawGraphOptions::XXX
+        DataFormat	: byte;		// Р¤РѕСЂРјР°С‚ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РѕС‚СЃС‡С‘С‚РѕРІ РІ OffT - MeasurementDataFormat::XXX
+        DrawOptions	: byte;	// РљР°Рє РѕС‚СЂРёСЃРѕРІС‹РІР°С‚СЊ РіСЂР°С„РёРє - DrawGraphOptions::XXX
 
-        // Длина данных в файле или в памяти в байтах - может быть равна 0. 
-        // Для сигнала = AllX * szTOnePoint
-        // Для комплексного спектра = AllX * 2 * szTOnePoint
+        // Р”Р»РёРЅР° РґР°РЅРЅС‹С… РІ С„Р°Р№Р»Рµ РёР»Рё РІ РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С… - РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РІРЅР° 0. 
+        // Р”Р»СЏ СЃРёРіРЅР°Р»Р° = AllX * szTOnePoint
+        // Р”Р»СЏ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ СЃРїРµРєС‚СЂР° = AllX * 2 * szTOnePoint
 		LenT       : longword;
 
-		Tick		: longword;           // Tick1024 для учета быстрых замеров
+		Tick		: longword;           // Tick1024 РґР»СЏ СѓС‡РµС‚Р° Р±С‹СЃС‚СЂС‹С… Р·Р°РјРµСЂРѕРІ
 
 		Reserv		: array [0..6-1] of longword;
 
@@ -380,24 +380,24 @@ const sz_Viana2_TTable = sizeof(_Viana2_TTable); // 88
 
 
 (*
-Для сигнала: float X[0],X[1],...,X[AllX-1]
-Для комплексного спектра: float Re[0],Im[0],Re[1],Im[1],...,Re[AllX-1],Im[AllX-1]
+Р”Р»СЏ СЃРёРіРЅР°Р»Р°: float X[0],X[1],...,X[AllX-1]
+Р”Р»СЏ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ СЃРїРµРєС‚СЂР°: float Re[0],Im[0],Re[1],Im[1],...,Re[AllX-1],Im[AllX-1]
 *)
 
 
 
 Type _Viana2_TOneChannel = record
 
-	Exist		: longword; // 0=teNo -  нет; 1=teHard - сигнал c железного канала; 2=teSoft - преобразованный
+	Exist		: longword; // 0=teNo -  РЅРµС‚; 1=teHard - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2=teSoft - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
 	Align1		: longword;
 
-    ValueInstant: array [0.._Viana2_svCOUNT-1] of single;	// Посчитанные по сигналу/спектру текущее (мгновенное) значение Peak, P-P, RMS, Zero, ...
-	ValueHarmonicsCalculatedTick : longword; // Tick1024 последнего посчитанного RE1..IM3. Они считаются долго, так что вычисляем только по запросу
-	ValueInstantCalculated	: longword;	// Флажки, какие из ValueInstant посчитаны
+    ValueInstant: array [0.._Viana2_svCOUNT-1] of single;	// РџРѕСЃС‡РёС‚Р°РЅРЅС‹Рµ РїРѕ СЃРёРіРЅР°Р»Сѓ/СЃРїРµРєС‚СЂСѓ С‚РµРєСѓС‰РµРµ (РјРіРЅРѕРІРµРЅРЅРѕРµ) Р·РЅР°С‡РµРЅРёРµ Peak, P-P, RMS, Zero, ...
+	ValueHarmonicsCalculatedTick : longword; // Tick1024 РїРѕСЃР»РµРґРЅРµРіРѕ РїРѕСЃС‡РёС‚Р°РЅРЅРѕРіРѕ RE1..IM3. РћРЅРё СЃС‡РёС‚Р°СЋС‚СЃСЏ РґРѕР»РіРѕ, С‚Р°Рє С‡С‚Рѕ РІС‹С‡РёСЃР»СЏРµРј С‚РѕР»СЊРєРѕ РїРѕ Р·Р°РїСЂРѕСЃСѓ
+	ValueInstantCalculated	: longword;	// Р¤Р»Р°Р¶РєРё, РєР°РєРёРµ РёР· ValueInstant РїРѕСЃС‡РёС‚Р°РЅС‹
 
-	ValueAvg	: array [0.._Viana2_svCOUNT-1] of single; // Усреднённые по посчитанным по сигналу/спектру Peak, P-P, RMS, Zero, ...
+	ValueAvg	: array [0.._Viana2_svCOUNT-1] of single; // РЈСЃСЂРµРґРЅС‘РЅРЅС‹Рµ РїРѕ РїРѕСЃС‡РёС‚Р°РЅРЅС‹Рј РїРѕ СЃРёРіРЅР°Р»Сѓ/СЃРїРµРєС‚СЂСѓ Peak, P-P, RMS, Zero, ...
 	ValueAvgCalculatedTick : longword;
-	ValueAvgCalculated		: longword;	// Флажки, какие из ValueAvg посчитаны
+	ValueAvgCalculated		: longword;	// Р¤Р»Р°Р¶РєРё, РєР°РєРёРµ РёР· ValueAvg РїРѕСЃС‡РёС‚Р°РЅС‹
 
 	Table: array [0.._Viana2_ztWavSp-1] of _Viana2_TTable;
 
@@ -406,52 +406,52 @@ end;
 const sz_Viana2_TOneChannel = sizeof(_Viana2_TOneChannel); // 512
 
 
-Type _Viana2_TOnePoint = single;	// Отсчёты хранятся в float
+Type _Viana2_TOnePoint = single;	// РћС‚СЃС‡С‘С‚С‹ С…СЂР°РЅСЏС‚СЃСЏ РІ float
 const sz_Viana2_TOnePoint = sizeof(_Viana2_TOnePoint);
 
-Type _Viana2_TOneChannelData = array [0.._Viana2_MAX_POINT_RECORDER-1] of _Viana2_TOnePoint; // Массив данных одного канала
+Type _Viana2_TOneChannelData = array [0.._Viana2_MAX_POINT_RECORDER-1] of _Viana2_TOnePoint; // РњР°СЃСЃРёРІ РґР°РЅРЅС‹С… РѕРґРЅРѕРіРѕ РєР°РЅР°Р»Р°
 const sz_Viana2_TOneChannelData = sizeof(_Viana2_TOneChannelData);
 
 
 
 
 
-// Структура для записи в файл, без причины не менять
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ Р·Р°РїРёСЃРё РІ С„Р°Р№Р», Р±РµР· РїСЂРёС‡РёРЅС‹ РЅРµ РјРµРЅСЏС‚СЊ
 Type _Viana2_TMeas = record
 
-	Exist		: word;	// 0=teNo -  нет; 1=teHard - сигнал c железного канала; 2=teSoft - преобразованный
+	Exist		: word;	// 0=teNo -  РЅРµС‚; 1=teHard - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2=teSoft - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
 	Version		: word;
-	DT			: _Viana2_TDateTime;       //Время и дата проведения замера
+	DT			: _Viana2_TDateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
-	LastDataTick: longword;  // Tick1024 начала замера или последнее добавление сегмента для длинных замеров (и для учета замеров короче 1 сек)
+	LastDataTick: longword;  // Tick1024 РЅР°С‡Р°Р»Р° Р·Р°РјРµСЂР° РёР»Рё РїРѕСЃР»РµРґРЅРµРµ РґРѕР±Р°РІР»РµРЅРёРµ СЃРµРіРјРµРЅС‚Р° РґР»СЏ РґР»РёРЅРЅС‹С… Р·Р°РјРµСЂРѕРІ (Рё РґР»СЏ СѓС‡РµС‚Р° Р·Р°РјРµСЂРѕРІ РєРѕСЂРѕС‡Рµ 1 СЃРµРє)
 	Align1		: longword;
 
-	MeasSetup	: _Viana2_TMeasureSetup; //  Что измеряем ? чтобы знать, как обрабатывать
+	MeasSetup	: _Viana2_TMeasureSetup; //  Р§С‚Рѕ РёР·РјРµСЂСЏРµРј ? С‡С‚РѕР±С‹ Р·РЅР°С‚СЊ, РєР°Рє РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ
 
-	Count		: longword;          // Число каналов вибрации
-	Channels	: longword;       // Маска подключенных датчиков
+	Count		: longword;          // Р§РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ РІРёР±СЂР°С†РёРё
+	Channels	: longword;       // РњР°СЃРєР° РїРѕРґРєР»СЋС‡РµРЅРЅС‹С… РґР°С‚С‡РёРєРѕРІ
 
-	// Что записано в замере
+	// Р§С‚Рѕ Р·Р°РїРёСЃР°РЅРѕ РІ Р·Р°РјРµСЂРµ
 	Types		: longword;
 	Units		: longword;
 
-	FreqTach	: single;    // Частота по отметчику
+	FreqTach	: single;    // Р§Р°СЃС‚РѕС‚Р° РїРѕ РѕС‚РјРµС‚С‡РёРєСѓ
 
-	TempValue	: single;    // Температура, град Цельсия
+	TempValue	: single;    // РўРµРјРїРµСЂР°С‚СѓСЂР°, РіСЂР°Рґ Р¦РµР»СЊСЃРёСЏ
 
-	// Усреднений Сколько / Из скольки
+	// РЈСЃСЂРµРґРЅРµРЅРёР№ РЎРєРѕР»СЊРєРѕ / РР· СЃРєРѕР»СЊРєРё
 	SpectrumAvg	: longword;
 	SpectrumAvgMax: longword;
 
-	FHP	: single;          // Верхняя частота фильтра
-	FLP	: single;          // Нижняя частота фильтра
+	FHP	: single;          // Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚РѕС‚Р° С„РёР»СЊС‚СЂР°
+	FLP	: single;          // РќРёР¶РЅСЏСЏ С‡Р°СЃС‚РѕС‚Р° С„РёР»СЊС‚СЂР°
 
-	// Таблицы Каналов с Сигналами-Спектрами
+	// РўР°Р±Р»РёС†С‹ РљР°РЅР°Р»РѕРІ СЃ РЎРёРіРЅР°Р»Р°РјРё-РЎРїРµРєС‚СЂР°РјРё
 	CH	: array [0.._Viana2_CHANNEL_COUNT-1] of _Viana2_TOneChannel;
 
 	Reserv: array [0..65-1] of longword;
 
-	Align	: TCRC; // Для выравнивания
+	Align	: TCRC; // Р”Р»СЏ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ
 	CRC		: TCRC;
 
 end;
@@ -464,40 +464,40 @@ const sz_Viana2_TMeas = sizeof(_Viana2_TMeas); // 1920
 
 
 
-// Замер СКЗ для Авроры
-const _Viana2_AURORA_CELL_MAX_POINTS   = 14; // Точек
-const _Viana2_AURORA_CELL_MAX_AXES     = 3; // Направлений
+// Р—Р°РјРµСЂ РЎРљР— РґР»СЏ РђРІСЂРѕСЂС‹
+const _Viana2_AURORA_CELL_MAX_POINTS   = 14; // РўРѕС‡РµРє
+const _Viana2_AURORA_CELL_MAX_AXES     = 3; // РќР°РїСЂР°РІР»РµРЅРёР№
 
-const _Viana2_POINT_READED_MASK     = $07; // Прочитаны ВПО
+const _Viana2_POINT_READED_MASK     = $07; // РџСЂРѕС‡РёС‚Р°РЅС‹ Р’РџРћ
 
 
 Type _Viana2_TRMSMeasurement = record
 
-	Exist		: word;	// 0=teNo -  нет; 1=teHard - сигнал c железного канала; 2=teSoft - преобразованный
+	Exist		: word;	// 0=teNo -  РЅРµС‚; 1=teHard - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2=teSoft - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
 	Version		: word;
-	DT			: _Viana2_TDateTime;       //Время и дата проведения замера
+	DT			: _Viana2_TDateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
-	MeasSetup	: _Viana2_TMeasureSetup; //  Что измеряем ? чтобы знать, как обрабатывать
+	MeasSetup	: _Viana2_TMeasureSetup; //  Р§С‚Рѕ РёР·РјРµСЂСЏРµРј ? С‡С‚РѕР±С‹ Р·РЅР°С‚СЊ, РєР°Рє РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ
 
   	Value      	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1, 0.._Viana2_eiVIBRO-1] of single;
   	Temp       	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1] of single;
 
-	PointReaded	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1] of byte; // Битовая маска для каждой точки, прочитан ли канал: 1 - В; 2 - П; 4 - О;
+	PointReaded	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1] of byte; // Р‘РёС‚РѕРІР°СЏ РјР°СЃРєР° РґР»СЏ РєР°Р¶РґРѕР№ С‚РѕС‡РєРё, РїСЂРѕС‡РёС‚Р°РЅ Р»Рё РєР°РЅР°Р»: 1 - Р’; 2 - Рџ; 4 - Рћ;
 	Align2		: word;
 
-    // Поля для Viana2 вместо Diag
-  	ValueViewMode : array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1, 0.._Viana2_eiVIBRO-1] of byte;	// Что лежит в Value, например, svRMS
+    // РџРѕР»СЏ РґР»СЏ Viana2 РІРјРµСЃС‚Рѕ Diag
+  	ValueViewMode : array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1, 0.._Viana2_eiVIBRO-1] of byte;	// Р§С‚Рѕ Р»РµР¶РёС‚ РІ Value, РЅР°РїСЂРёРјРµСЂ, svRMS
 	Align3		: word;
 
-  	RMSVelocityValue : array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1] of single; // Значения RMS Vel для вычисления состояния
+  	RMSVelocityValue : array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1] of single; // Р—РЅР°С‡РµРЅРёСЏ RMS Vel РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 
-	// Поля для Viana2 вместо Diag
-	Channel	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1] of byte; // С какого канала измерено значение (CH_1 или CH_2)
+	// РџРѕР»СЏ РґР»СЏ Viana2 РІРјРµСЃС‚Рѕ Diag
+	Channel	: array [0.._Viana2_AURORA_CELL_MAX_POINTS-1, 0.._Viana2_AURORA_CELL_MAX_AXES-1] of byte; // РЎ РєР°РєРѕРіРѕ РєР°РЅР°Р»Р° РёР·РјРµСЂРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ (CH_1 РёР»Рё CH_2)
 	Align4	: word;
 
 	Reserv: array [0..44-1] of longword;
 
-	Align	: TCRC; // Для выравнивания
+	Align	: TCRC; // Р”Р»СЏ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ
 	CRC		: TCRC;
 
 end;
@@ -516,58 +516,58 @@ const sz_Viana2_TRMSMeasurement = sizeof(_Viana2_TRMSMeasurement); // 1280
 
 
 (*
-//------------------------------ Маршруты Viana2 ------------------------------
+//------------------------------ РњР°СЂС€СЂСѓС‚С‹ Viana2 ------------------------------
 
 
-//---------- Описание констант ----------
-const NameRoute_V2   = 64;   //Длина имени в маршруте (В Атланте = 60)
+//---------- РћРїРёСЃР°РЅРёРµ РєРѕРЅСЃС‚Р°РЅС‚ ----------
+const NameRoute_V2   = 64;   //Р”Р»РёРЅР° РёРјРµРЅРё РІ РјР°СЂС€СЂСѓС‚Рµ (Р’ РђС‚Р»Р°РЅС‚Рµ = 60)
       MaxRouteNode_V2 = 1024;
-      RouteVersion_V2 = $200; // Версия маршрутов 2.00
+      RouteVersion_V2 = $200; // Р’РµСЂСЃРёСЏ РјР°СЂС€СЂСѓС‚РѕРІ 2.00
 
 
 // TRouteNode_V2.Exists
-const rneFlagNone   = 0; // Не заполнено - не использовать
-      rneFlagFilled = 1; // Параметры заполнены
-      rneFlagReaded = 3; // rneFilled + Считан сигнал
+const rneFlagNone   = 0; // РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ - РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
+      rneFlagFilled = 1; // РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїРѕР»РЅРµРЅС‹
+      rneFlagReaded = 3; // rneFilled + РЎС‡РёС‚Р°РЅ СЃРёРіРЅР°Р»
 
-// Флажки 0xFFFFFFFF, чтобы можно было дописывать во Flash  без стирания
-const rneNone   = $FFFFFFFF; // Не заполнено - не использовать
-      rneFilled = (rneNone xor rneFlagFilled); // Параметры заполнены
-      rneReaded = (rneNone xor rneFlagReaded); // rneFilled + Считан сигнал
+// Р¤Р»Р°Р¶РєРё 0xFFFFFFFF, С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РґРѕРїРёСЃС‹РІР°С‚СЊ РІРѕ Flash  Р±РµР· СЃС‚РёСЂР°РЅРёСЏ
+const rneNone   = $FFFFFFFF; // РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ - РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
+      rneFilled = (rneNone xor rneFlagFilled); // РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїРѕР»РЅРµРЅС‹
+      rneReaded = (rneNone xor rneFlagReaded); // rneFilled + РЎС‡РёС‚Р°РЅ СЃРёРіРЅР°Р»
 
 
 
-//---------- Структура Элемент ----------
+//---------- РЎС‚СЂСѓРєС‚СѓСЂР° Р­Р»РµРјРµРЅС‚ ----------
 Type TRouteNode_V2 = record
 
       Exists       : longword;    // rneXXX
-      DataID       : longint;    // идентификатор замера во Flash или 0 или -1, если нет
+      DataID       : longint;    // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РјРµСЂР° РІРѕ Flash РёР»Рё 0 РёР»Рё -1, РµСЃР»Рё РЅРµС‚
 
       Name         : array [0..NameRoute_V2-1] of AnsiChar;
 
-      Order        : longword;      //Из Атланта; для точек должно быть >0 ; для станций и прочего = 0
+      Order        : longword;      //РР· РђС‚Р»Р°РЅС‚Р°; РґР»СЏ С‚РѕС‡РµРє РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ >0 ; РґР»СЏ СЃС‚Р°РЅС†РёР№ Рё РїСЂРѕС‡РµРіРѕ = 0
 
-// Только для точек
-      Tip          : longword;        //тип сигнала (сигнал/спектр)
-      EdIzm        : longword;      //единицы измерения
-      Channel      : longword;    //Канал 1..N; 0 - по-умолчанию
-      Lines        : longint;      //число линий в спектре
-      LoFreq       : longint;     //нижняя граничная частота, Гц
-      HiFreq       : longint;     //верхняя граничная частота, Гц
-      NAverg       : longint;     //число усреднений, только для спектра (может не использоваться прибором)
-      Stamper      : longword;    // 1 - старт по отметчику (может не использоваться прибором)
+// РўРѕР»СЊРєРѕ РґР»СЏ С‚РѕС‡РµРє
+      Tip          : longword;        //С‚РёРї СЃРёРіРЅР°Р»Р° (СЃРёРіРЅР°Р»/СЃРїРµРєС‚СЂ)
+      EdIzm        : longword;      //РµРґРёРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ
+      Channel      : longword;    //РљР°РЅР°Р» 1..N; 0 - РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
+      Lines        : longint;      //С‡РёСЃР»Рѕ Р»РёРЅРёР№ РІ СЃРїРµРєС‚СЂРµ
+      LoFreq       : longint;     //РЅРёР¶РЅСЏСЏ РіСЂР°РЅРёС‡РЅР°СЏ С‡Р°СЃС‚РѕС‚Р°, Р“С†
+      HiFreq       : longint;     //РІРµСЂС…РЅСЏСЏ РіСЂР°РЅРёС‡РЅР°СЏ С‡Р°СЃС‚РѕС‚Р°, Р“С†
+      NAverg       : longint;     //С‡РёСЃР»Рѕ СѓСЃСЂРµРґРЅРµРЅРёР№, С‚РѕР»СЊРєРѕ РґР»СЏ СЃРїРµРєС‚СЂР° (РјРѕР¶РµС‚ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёР±РѕСЂРѕРј)
+      Stamper      : longword;    // 1 - СЃС‚Р°СЂС‚ РїРѕ РѕС‚РјРµС‚С‡РёРєСѓ (РјРѕР¶РµС‚ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёР±РѕСЂРѕРј)
 
 
       Deep         : longint;
-      Parent       : longint;      // Индекс предка
-      ChildCount   : longint;  // Число подэлементов
-      Expanded     : longword;    // Узел дерева раскрыт (для поддержки дерева)
-      Marked       : longword;      // Узел дерева отмечен (на будущее)
+      Parent       : longint;      // РРЅРґРµРєСЃ РїСЂРµРґРєР°
+      ChildCount   : longint;  // Р§РёСЃР»Рѕ РїРѕРґСЌР»РµРјРµРЅС‚РѕРІ
+      Expanded     : longword;    // РЈР·РµР» РґРµСЂРµРІР° СЂР°СЃРєСЂС‹С‚ (РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РґРµСЂРµРІР°)
+      Marked       : longword;      // РЈР·РµР» РґРµСЂРµРІР° РѕС‚РјРµС‡РµРЅ (РЅР° Р±СѓРґСѓС‰РµРµ)
 
-      //  Для поддержки передачи и разборки в Атланте
-      ID           : longword;        // идентификатор точки
-      Offset       : longword;        // смещение в скачанном файле
-      Len          : longword;        // длина в скачанном файле
+      //  Р”Р»СЏ РїРѕРґРґРµСЂР¶РєРё РїРµСЂРµРґР°С‡Рё Рё СЂР°Р·Р±РѕСЂРєРё РІ РђС‚Р»Р°РЅС‚Рµ
+      ID           : longword;        // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РѕС‡РєРё
+      Offset       : longword;        // СЃРјРµС‰РµРЅРёРµ РІ СЃРєР°С‡Р°РЅРЅРѕРј С„Р°Р№Р»Рµ
+      Len          : longword;        // РґР»РёРЅР° РІ СЃРєР°С‡Р°РЅРЅРѕРј С„Р°Р№Р»Рµ
 
       Reserv       : array [0..3] of longword;
 
@@ -577,14 +577,14 @@ end;
 
 
 
-//---------- Заголовок структуры маршрута ----------
+//---------- Р—Р°РіРѕР»РѕРІРѕРє СЃС‚СЂСѓРєС‚СѓСЂС‹ РјР°СЂС€СЂСѓС‚Р° ----------
 Type TRouteHdr_V2 = record
 
-      Version      : longword;       // 0x200 для этой версии
+      Version      : longword;       // 0x200 РґР»СЏ СЌС‚РѕР№ РІРµСЂСЃРёРё
 
       Name         : array [0..NameRoute_V2-1] of AnsiChar;
 
-      Count        : longint;         // Число элементов Node
+      Count        : longint;         // Р§РёСЃР»Рѕ СЌР»РµРјРµРЅС‚РѕРІ Node
 
       Reserv       : array [0..15] of longword;
 
@@ -593,19 +593,19 @@ Type TRouteHdr_V2 = record
 end;
 
 
-//---------- Маршрут ----------
+//---------- РњР°СЂС€СЂСѓС‚ ----------
 Type TRoute_V2 = record
 
-     Hdr       : TRouteHdr_V2;           //заголовок маршрута
+     Hdr       : TRouteHdr_V2;           //Р·Р°РіРѕР»РѕРІРѕРє РјР°СЂС€СЂСѓС‚Р°
 
-     Node      : array [0..MaxRouteNode_V2-1] of TRouteNode_V2;    // элементы маршрута
+     Node      : array [0..MaxRouteNode_V2-1] of TRouteNode_V2;    // СЌР»РµРјРµРЅС‚С‹ РјР°СЂС€СЂСѓС‚Р°
 
 end;
 
 
 const szTRouteNode_V2 = sizeof(TRouteNode_V2);
       szTRouteHdr_V2  = sizeof(TRouteHdr_V2);
-      szTRoute_V2     = sizeof(TRoute_V2); // ~140Кб
+      szTRoute_V2     = sizeof(TRoute_V2); // ~140РљР±
 
 *)
 

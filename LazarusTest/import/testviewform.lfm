@@ -1,7 +1,7 @@
 object FormViewMeasurement: TFormViewMeasurement
-  Left = 679
+  Left = -858
   Height = 512
-  Top = 229
+  Top = 75
   Width = 736
   Caption = 'View Measurements'
   ClientHeight = 512
@@ -10,6 +10,7 @@ object FormViewMeasurement: TFormViewMeasurement
   Font.Height = 24
   OnClose = FormClose
   OnDestroy = FormDestroy
+  Position = poScreenCenter
   LCLVersion = '2.2.0.4'
   object ChartMeasurement: TChart
     Left = 0

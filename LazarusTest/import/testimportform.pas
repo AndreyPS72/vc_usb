@@ -81,8 +81,10 @@ begin
 
   try
     LogText.Items.Add(Format(PriborType, [Info.Pribor]));
-    if (Info.Pribor = prViana2) then LogText.Items.Add(Format(PriborName, ['ViAna-2']))
-    else if (Info.Pribor = prDiana2Rev2) then LogText.Items.Add(Format(PriborName, ['Diana-2M']));
+    if (Info.Pribor = prViana1) then LogText.Items.Add(Format(PriborName, ['ViAna-1']))
+    else if (Info.Pribor = prViana2) then LogText.Items.Add(Format(PriborName, ['ViAna-2']))
+    else if (Info.Pribor = prDiana2Rev2) then LogText.Items.Add(Format(PriborName, ['Diana-2M']))
+    else if (Info.Pribor = prVV2) then LogText.Items.Add(Format(PriborName, ['Vibro Vision-2']));
 
     if
       (Info.Pribor = prDiana) or
@@ -141,7 +143,7 @@ end;
 function TFormTestImport.TestPribor(): boolean;
 begin
 
-  Result := (SendCommandRepeat(cmdTestPribor, 0, 0, 0, 0, @Info, szTInfoPribor) = LinkResultOk);
+  Result := (SendCommandRepeat(cmdTestPribor, 0, 0, 0, 0, @Info, szTInfoPriborFull) = LinkResultOk);
 
 end;
 

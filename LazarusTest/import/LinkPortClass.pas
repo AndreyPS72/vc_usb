@@ -61,8 +61,6 @@ type
 
         procedure SetCommand(aCommand: longword; aID: TID); virtual;
 
-        procedure SetInfoPribor(var Info: TInfoPribor); virtual;
-
     private
         function WaitIn(Count: Longword): boolean; virtual;
         function WaitOut(Count: Longword): boolean; virtual;
@@ -140,8 +138,6 @@ type
 		procedure FlushRX(); override;
 		function SendBuffer(buf: pointer; Len: LongWord): integer; override;
         function GetBuffer(buf: pointer; Len: longword): integer; override;
-
-        procedure SetInfoPribor(var Info: TInfoPribor); override;
 
 end;
 
@@ -311,13 +307,6 @@ function TLinkPort.SendCommandGetBuffer(var aCommand: TCommand;
 begin
 
 Result := SendGetBuffer(@aCommand, szTCommand, aGetBuf, aGetBufLen);
-
-end;
-
-
-
-procedure TLinkPort.SetInfoPribor(var Info: TInfoPribor);
-begin
 
 end;
 
@@ -740,7 +729,7 @@ var
 begin
     result := ErrorUnknown;
 
-    if (ProtocolVersion = 201) or (ProtocolVersion = 202) then begin
+    if (ProtocolVersion >= 201) then begin
         if VCUSBRead(Buf, Len, cbCount, DEFAULT_TIMEOUT) <> S_OK then
         	Exit;
 
@@ -778,7 +767,7 @@ var
 begin
     result := ErrorUnknown;
 
-    if (ProtocolVersion = 201) or (ProtocolVersion = 202) then begin
+    if (ProtocolVersion >= 201) then begin
         if VCUSBWrite(Buf, Len, cbCount, DEFAULT_TIMEOUT) <> S_OK then begin
         	Exit;
         end;
@@ -883,12 +872,6 @@ begin
 
 end;
 
-procedure TUsbLinkPort.SetInfoPribor(var Info: TInfoPribor);
-begin
-  inherited;
-
-  ProtocolVersion:= Info.Protokol;
-end;
 
 
 
@@ -896,12 +879,14 @@ function TUsbLinkPort.SendCommandGetBuffer(var aCommand: TCommand;
   aGetBuf: pointer; aGetBufLen: LongWord): integer;
 begin
 
-Result := inherited SendCommandGetBuffer(aCommand, aGetBuf, aGetBufLen);
+if aCommand.Command <> cmdTestPribor then begin
+   Result := inherited SendCommandGetBuffer(aCommand, aGetBuf, aGetBufLen);
+end else begin
 
-if Result = LinkResultOk then begin
-    if aCommand.Command = cmdTestPribor then
-        SetInfoPribor(PInfoPribor(aGetBuf)^);
-
+    ProtocolVersion := 0; // Эта команда обязательно использует Режим USB 1.1 = добить пакет до 64 байт
+    Result := inherited SendCommandGetBuffer(aCommand, aGetBuf, szTInfoPribor);
+    if Result = LinkResultOk then
+        ProtocolVersion:= PInfoPribor(aGetBuf)^.Protokol;
 end;
 
 end;

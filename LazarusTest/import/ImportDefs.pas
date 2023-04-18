@@ -11,7 +11,7 @@ interface
 uses Zamhdr, LCLIntf, LCLType, Classes;
 
 
-// Для совместимости с x64 указателями
+// Р”Р»СЏ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё СЃ x64 СѓРєР°Р·Р°С‚РµР»СЏРјРё
 Type  TTagTableRecord_x64 = record
         NumT     : TTagNum;
         LenT     : Tu32;
@@ -45,26 +45,26 @@ Type PBufOneRec =^TBufOneRec;
 
        Vals: PRealArray;
 
-       LTT_x64  : TLocalTagTable_x64; // Таблица для дополнительных данных, передаваемых с замером. Например, ФЧХ, голос.
+       LTT_x64  : TLocalTagTable_x64; // РўР°Р±Р»РёС†Р° РґР»СЏ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РґР°РЅРЅС‹С…, РїРµСЂРµРґР°РІР°РµРјС‹С… СЃ Р·Р°РјРµСЂРѕРј. РќР°РїСЂРёРјРµСЂ, Р¤Р§РҐ, РіРѕР»РѕСЃ.
 
 end;
 
 
-//структура отметчика
+//СЃС‚СЂСѓРєС‚СѓСЂР° РѕС‚РјРµС‚С‡РёРєР°
 Type POtmet =^TOtmet;
      TOtmet = record
 
-        Channel: integer; // Канал отметчика
+        Channel: integer; // РљР°РЅР°Р» РѕС‚РјРµС‚С‡РёРєР°
 
-        int_fi, // первый пик в отметчике
-        int_la, // последний пик в отметчике
-        int_k  // число периодов отметчика
+        int_fi, // РїРµСЂРІС‹Р№ РїРёРє РІ РѕС‚РјРµС‚С‡РёРєРµ
+        int_la, // РїРѕСЃР»РµРґРЅРёР№ РїРёРє РІ РѕС‚РјРµС‚С‡РёРєРµ
+        int_k  // С‡РёСЃР»Рѕ РїРµСЂРёРѕРґРѕРІ РѕС‚РјРµС‚С‡РёРєР°
             : integer;
         min, max: double;
-        Freq, // оборот.частота, отсчетов на период
-        Phase // смещение начальной фазы RealPhase=(int_fi-Phase)/Freq*360
+        Freq, // РѕР±РѕСЂРѕС‚.С‡Р°СЃС‚РѕС‚Р°, РѕС‚СЃС‡РµС‚РѕРІ РЅР° РїРµСЂРёРѕРґ
+        Phase // СЃРјРµС‰РµРЅРёРµ РЅР°С‡Р°Р»СЊРЅРѕР№ С„Р°Р·С‹ RealPhase=(int_fi-Phase)/Freq*360
             : double;
-        FreqHz, // оборот.частота, Гц
+        FreqHz, // РѕР±РѕСЂРѕС‚.С‡Р°СЃС‚РѕС‚Р°, Р“С†
         PhaseDegr // RealPhase=(int_fi-Phase)/Freq*360
             : double;
 end;
@@ -72,7 +72,7 @@ end;
 
 
 
-// Массив для передачи из DLL
+// РњР°СЃСЃРёРІ РґР»СЏ РїРµСЂРµРґР°С‡Рё РёР· DLL
 const MaxBufOneRec = 1024;
 
 Type PBufOneRecArray =^TBufOneRecArray;
@@ -82,11 +82,11 @@ Type PBufOneRecArray =^TBufOneRecArray;
 procedure CreateRec(var Rec: PBufOneRec);
 procedure DestroyRec(Rec: PBufOneRec);
 
-// Резервирует память под AllX отсчетов
+// Р РµР·РµСЂРІРёСЂСѓРµС‚ РїР°РјСЏС‚СЊ РїРѕРґ AllX РѕС‚СЃС‡РµС‚РѕРІ
 procedure AllocRec(Rec: PBufOneRec);
 procedure FreeRec(Rec: PBufOneRec);
 
-// Резервирует память под дополнительные данные замера
+// Р РµР·РµСЂРІРёСЂСѓРµС‚ РїР°РјСЏС‚СЊ РїРѕРґ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ Р·Р°РјРµСЂР°
 procedure AddLocalTag(Rec: PBufOneRec; aTag : TTagNum; aBuf: pointer; aLen : Longword);
 function  GetLocalTag(Rec: PBufOneRec; aTag : TTagNum; var aLen : Longword): Pointer;
 

@@ -22,7 +22,7 @@ implementation
 
 // Days between 1/1/0001 and 01/01/2000
 const  _TDateDelta=730119;
-// ���㭤 � ��⪠�
+// ‘ҐЄг­¤ ў бгвЄ е
 const  _TSecPerDay=24*60*60;
 
 const MonthDays:array [0..1,0..11] of byte=

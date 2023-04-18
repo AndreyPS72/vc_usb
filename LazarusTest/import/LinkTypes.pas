@@ -375,7 +375,7 @@ const
     szTCommand = SizeOf(TCommand);
 
 Type
-  //структура информации о приборе - всего 50 байт
+  //структура информации о приборе - всего 50 полезных байт
   PInfoPribor =^TInfoPribor;
   TInfoPribor = packed record
     Sign        : TSign; //сигнатура
@@ -392,11 +392,12 @@ Type
     AllClaster  : TWord2;
     Data        : array [1..9] of byte;
     CRC         : TCRC;
-//  Align64     : array[1..14]of byte; // Добивка до 64 байт - с ней почему-то не работает :-(
+    Align64     : array[1..14]of byte; // Добивка до 64 байт, но полезного только 50 байт
   end;
 
 const
-    szTInfoPribor = SizeOf(TInfoPribor);
+    szTInfoPribor = 50;
+    szTInfoPriborFull = SizeOf(TInfoPribor);
 
 
 Type
@@ -814,7 +815,8 @@ end;
 initialization
 Assert(sizeof(TSign) = 3);
 Assert(sizeof(TCommand) = 14);
-Assert(sizeof(TInfoPribor) = 50);
+Assert(szTInfoPribor = 50);
+Assert(szTInfoPriborFull = 64);
 Assert(sizeof(TLinkFrame) = 12);
 Assert(sizeof(TFrameWrite) = 520);
 Assert(sizeof(TLinkList) = 64);

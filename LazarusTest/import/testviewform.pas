@@ -35,6 +35,8 @@ implementation
 uses ImportDefs
      , ImportViana2
      , ImportKorsar
+     , ImportViana1
+     , ImportVV2
      ;
 
 {$R *.lfm}
@@ -69,6 +71,12 @@ begin
   end else
   if (aDevice = prDiana2Rev2) then begin
      res := ImportKorsarM(aFilePath, aDevice, ListBoxData);
+  end else
+  if (aDevice = prViana1) then begin
+     res := DoImportViana1(aFilePath, aDevice, ListBoxData);
+  end else
+  if (aDevice = prVV2) then begin
+     res := DoImportVV2(aFilePath, aDevice, ListBoxData);
   end else
       res := 0;
 

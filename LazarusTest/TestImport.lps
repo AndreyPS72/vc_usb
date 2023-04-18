@@ -8,29 +8,14 @@
       <Unit>
         <Filename Value="TestImport.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="27" Y="13"/>
         <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="testimportform.pas"/>
-        <ComponentName Value="FormTestImport"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="TestImportForm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="252"/>
-        <CursorPos X="5" Y="278"/>
-        <UsageCount Value="163"/>
-        <Bookmarks Count="1">
-          <Item0 X="42" Y="352"/>
-        </Bookmarks>
-      </Unit>
-      <Unit>
         <Filename Value="import\LinkTypes.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="416"/>
         <CursorPos X="3" Y="435"/>
         <UsageCount Value="164"/>
@@ -40,7 +25,7 @@
         <Filename Value="import\linktestport.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkTestPort"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="194"/>
         <CursorPos Y="217"/>
         <UsageCount Value="164"/>
@@ -58,6 +43,32 @@
         <UsageCount Value="74"/>
       </Unit>
       <Unit>
+        <Filename Value="import\testimportform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormTestImport"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestImportForm"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testimportform.pas"/>
+        <ComponentName Value="FormTestImport"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestImportForm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="252"/>
+        <CursorPos X="5" Y="278"/>
+        <UsageCount Value="163"/>
+        <Bookmarks Count="1">
+          <Item0 X="42" Y="352"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
         <Filename Value="DEFS.PAS"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="458"/>
@@ -73,7 +84,7 @@
       </Unit>
       <Unit>
         <Filename Value="import\VCUSBHdr.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="180"/>
         <CursorPos Y="198"/>
         <UsageCount Value="79"/>
@@ -81,7 +92,7 @@
       </Unit>
       <Unit>
         <Filename Value="import\LinkPortClass.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="763"/>
         <CursorPos Y="795"/>
         <UsageCount Value="81"/>
@@ -244,23 +255,19 @@
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
-        <Filename Value="import\testimportform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FormTestImport"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="TestImportForm"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <Filename Value="import\LinkTypesViana.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="102" Y="20"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
     <OtherDefines Count="2">
       <Define0 Value="DianaProtocolOnly"/>
       <Define1 Value="NeedImport"/>
     </OtherDefines>
-    <JumpHistory HistoryIndex="11">
+    <JumpHistory HistoryIndex="13">
       <Position>
         <Filename Value="import\linktestport.pas"/>
         <Caret Line="240" Column="39" TopLine="207"/>
@@ -308,6 +315,14 @@
       <Position>
         <Filename Value="import\LinkTypes.pas"/>
         <Caret Line="458" Column="3" TopLine="439"/>
+      </Position>
+      <Position>
+        <Filename Value="TestImport.lpr"/>
+        <Caret Line="13" Column="27"/>
+      </Position>
+      <Position>
+        <Filename Value="import\LinkTypesViana.pas"/>
+        <Caret Line="12" Column="45"/>
       </Position>
     </JumpHistory>
     <RunParams>

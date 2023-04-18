@@ -12,37 +12,37 @@ uses  LinkTypes
 {$R-}
 
 
-// Тип замера
-const _VV2_ztWaveform        = 0;     // Сигнал
-const _VV2_ztSpectrum        = 1;     // Спектр
-const _VV2_ztEnvelope        = 2;     // Огибающая
-const _VV2_ztEnvSpectrum     = 3;     // Спектр огибающей
-const _VV2_ztRMS             = 4;     // СКЗ
+// РўРёРї Р·Р°РјРµСЂР°
+const _VV2_ztWaveform        = 0;     // РЎРёРіРЅР°Р»
+const _VV2_ztSpectrum        = 1;     // РЎРїРµРєС‚СЂ
+const _VV2_ztEnvelope        = 2;     // РћРіРёР±Р°СЋС‰Р°СЏ
+const _VV2_ztEnvSpectrum     = 3;     // РЎРїРµРєС‚СЂ РѕРіРёР±Р°СЋС‰РµР№
+const _VV2_ztRMS             = 4;     // РЎРљР—
 
-const _VV2_ztCount           = 4;     // Количество
+const _VV2_ztCount           = 4;     // РљРѕР»РёС‡РµСЃС‚РІРѕ
 const _VV2_ztVibro           = 4;
 
 
-//--- Размерность информации
-const  _VV2_eiAcceleration    = 0;   // Ускорение, м/с2
-const  _VV2_eiVelocity        = 1;   // Скорость, мм/с
-const  _VV2_eiDisplacement    = 2;   // Перемещение, мкм
-const  _VV2_eiVolt            = 3;   // Вольты, В
-const  _VV2_eiTemp            = 4;   // Температура, град C
+//--- Р Р°Р·РјРµСЂРЅРѕСЃС‚СЊ РёРЅС„РѕСЂРјР°С†РёРё
+const  _VV2_eiAcceleration    = 0;   // РЈСЃРєРѕСЂРµРЅРёРµ, Рј/СЃ2
+const  _VV2_eiVelocity        = 1;   // РЎРєРѕСЂРѕСЃС‚СЊ, РјРј/СЃ
+const  _VV2_eiDisplacement    = 2;   // РџРµСЂРµРјРµС‰РµРЅРёРµ, РјРєРј
+const  _VV2_eiVolt            = 3;   // Р’РѕР»СЊС‚С‹, Р’
+const  _VV2_eiTemp            = 4;   // РўРµРјРїРµСЂР°С‚СѓСЂР°, РіСЂР°Рґ C
 
-const  _VV2_eiCount           = 5; // Количество
+const  _VV2_eiCount           = 5; // РљРѕР»РёС‡РµСЃС‚РІРѕ
 const  _VV2_eiVibro           = 3;
 
 
-// Спектр - что показывать ?
-const _VV2_svPeak             = 0;     // Пик
-const _VV2_svPP               = 1;     // Пик-Пик
-const _VV2_svRMS              = 2;     // СКЗ
+// РЎРїРµРєС‚СЂ - С‡С‚Рѕ РїРѕРєР°Р·С‹РІР°С‚СЊ ?
+const _VV2_svPeak             = 0;     // РџРёРє
+const _VV2_svPP               = 1;     // РџРёРє-РџРёРє
+const _VV2_svRMS              = 2;     // РЎРљР—
 
 
 
-// Состояние
-const _VV2_stateNone    = 0; // Неизвестно
+// РЎРѕСЃС‚РѕСЏРЅРёРµ
+const _VV2_stateNone    = 0; // РќРµРёР·РІРµСЃС‚РЅРѕ
 const _VV2_stateGreen   = 1;
 const _VV2_stateYellow  = 2;
 const _VV2_stateRed     = 3;
@@ -54,7 +54,7 @@ const _VV2_stateCount   = 4;
 
 
 
-//       u32 Exist; // 0 -  нет; 1 - сигнал c железного канала; 2 - преобразованный
+//       u32 Exist; // 0 -  РЅРµС‚; 1 - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2 - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
 const _VV2_teNo       = 0;
 const _VV2_teHard     = 1;
 const _VV2_teSoft     = 2;
@@ -65,8 +65,8 @@ Type _T_VV2_DateTime = longword;
 
 Type T_VV2_Table = record
 
-       Exist      : longword; // 0 -  нет; 1 - сигнал c железного канала; 2 - преобразованный
-       DT         : _T_VV2_DateTime;       //Время и дата проведения замера
+       Exist      : longword; // 0 -  РЅРµС‚; 1 - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2 - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
+       DT         : _T_VV2_DateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
        Tip        : longword;
        EdIzm      : longword;
@@ -76,12 +76,12 @@ Type T_VV2_Table = record
        dX         : single;
        XN         : single;
 
-       Ampl       : Longint;   // Максимальное значение в отсчетах
+       Ampl       : Longint;   // РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ РѕС‚СЃС‡РµС‚Р°С…
        Scale      : single;
 
-       OffT       : longword;      // Смещение данных канала в файле или адрес в памяти
-       LenT       : longword;             // Длина данных в файле или в памяти в байтах - может быть равна 0
-                             // Обычно AllX*szTOnePoint
+       OffT       : longword;      // РЎРјРµС‰РµРЅРёРµ РґР°РЅРЅС‹С… РєР°РЅР°Р»Р° РІ С„Р°Р№Р»Рµ РёР»Рё Р°РґСЂРµСЃ РІ РїР°РјСЏС‚Рё
+       LenT       : longword;             // Р”Р»РёРЅР° РґР°РЅРЅС‹С… РІ С„Р°Р№Р»Рµ РёР»Рё РІ РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С… - РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РІРЅР° 0
+                             // РћР±С‹С‡РЅРѕ AllX*szTOnePoint
 
        Reserv     : array [0..3] of longword;
 
@@ -91,8 +91,8 @@ const szT_VV2_Table = sizeof(T_VV2_Table);
 
 
 (*
-Для сигнала: int X[0],X[1],...,X[AllX-1]
-Для комплексного спектра: int Re[0],Im[0],Re[1],Im[1],...,Re[AllX-1],Im[AllX-1]
+Р”Р»СЏ СЃРёРіРЅР°Р»Р°: int X[0],X[1],...,X[AllX-1]
+Р”Р»СЏ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ СЃРїРµРєС‚СЂР°: int Re[0],Im[0],Re[1],Im[1],...,Re[AllX-1],Im[AllX-1]
 *)
 
 
@@ -104,31 +104,31 @@ const szT_VV2_Table = sizeof(T_VV2_Table);
 
 
 
-// Max теоретически возможное число каналов
-// 0 - отметчик
-// 1 - внутр датчик  2 - внешний датчик   3 - микрофон для огибающей
+// Max С‚РµРѕСЂРµС‚РёС‡РµСЃРєРё РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ
+// 0 - РѕС‚РјРµС‚С‡РёРє
+// 1 - РІРЅСѓС‚СЂ РґР°С‚С‡РёРє  2 - РІРЅРµС€РЅРёР№ РґР°С‚С‡РёРє   3 - РјРёРєСЂРѕС„РѕРЅ РґР»СЏ РѕРіРёР±Р°СЋС‰РµР№
 const _VV2_MaxChannelCount = 4;
 
-// Тип датчика
-const _VV2_chStamp    = 0; // Отметчик
-const _VV2_chHigh     = 1; // ВЧ канал
-const _VV2_chLow      = 2; // НЧ канал
+// РўРёРї РґР°С‚С‡РёРєР°
+const _VV2_chStamp    = 0; // РћС‚РјРµС‚С‡РёРє
+const _VV2_chHigh     = 1; // Р’Р§ РєР°РЅР°Р»
+const _VV2_chLow      = 2; // РќР§ РєР°РЅР°Р»
 const _VV2_chEnv      = 3; // UHF
 
 
-const _VV2_chCurrentChannel = _VV2_chHigh; // Для работы
+const _VV2_chCurrentChannel = _VV2_chHigh; // Р”Р»СЏ СЂР°Р±РѕС‚С‹
 
 
-const _VV2_MaxSensor = 2; // Доступны два датчика
+const _VV2_MaxSensor = 2; // Р”РѕСЃС‚СѓРїРЅС‹ РґРІР° РґР°С‚С‡РёРєР°
 
-// Тип входа
+// РўРёРї РІС…РѕРґР°
 const _VV2_stExternalSensor = 0;
 const _VV2_stInternalSensor = 1;
 const _VV2_stNoSensor = 2;
 const _VV2_stTestSinus = 3;
 
 
-const _VV2_MaxPoint           = (8*1024);  //максимальное число точек в данных
+const _VV2_MaxPoint           = (8*1024);  //РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ С‚РѕС‡РµРє РІ РґР°РЅРЅС‹С…
 
 
 
@@ -136,7 +136,7 @@ const _VV2_MaxPoint           = (8*1024);  //максимальное число точек в данных
 Type T_VV2_OnePoint = longint;
 const szT_VV2_OnePoint = sizeof(T_VV2_OnePoint);
 
-Type T_VV2_OneChannelData = array [0.._VV2_MaxPoint-1] of T_VV2_OnePoint; // Массив данных одного канала
+Type T_VV2_OneChannelData = array [0.._VV2_MaxPoint-1] of T_VV2_OnePoint; // РњР°СЃСЃРёРІ РґР°РЅРЅС‹С… РѕРґРЅРѕРіРѕ РєР°РЅР°Р»Р°
 const szT_VV2_OneChannelData = sizeof(T_VV2_OneChannelData);
 
 
@@ -146,19 +146,19 @@ const szT_VV2_OneChannelData = sizeof(T_VV2_OneChannelData);
 
 
 
-// ============ Для сохранения во Flash ===================
+// ============ Р”Р»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РІРѕ Flash ===================
 
 
 
-// Заголовок замера во FLASH
+// Р—Р°РіРѕР»РѕРІРѕРє Р·Р°РјРµСЂР° РІРѕ FLASH
 Type T_VV2_Parameters = record
-//Шапка
+//РЁР°РїРєР°
 
-       fType       : longword;           //Тип замера
-       ID          : longword;           //Идентификатор замера
-       Num         : longword;           //Номер замера
+       fType       : longword;           //РўРёРї Р·Р°РјРµСЂР°
+       ID          : longword;           //РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РјРµСЂР°
+       Num         : longword;           //РќРѕРјРµСЂ Р·Р°РјРµСЂР°
 
-       // Дата и время замера
+       // Р”Р°С‚Р° Рё РІСЂРµРјСЏ Р·Р°РјРµСЂР°
        Day,
        Month,
        Year,  //-2000
@@ -169,20 +169,20 @@ Type T_VV2_Parameters = record
        Directory : byte;
        align1 : byte;
 
-       MeasType : longword;                   // Что записано
+       MeasType : longword;                   // Р§С‚Рѕ Р·Р°РїРёСЃР°РЅРѕ
 
-       Value : single;                   // Значение для RMS мкВ
+       Value : single;                   // Р—РЅР°С‡РµРЅРёРµ РґР»СЏ RMS РјРєР’
 
-//Данные замера
+//Р”Р°РЅРЅС‹Рµ Р·Р°РјРµСЂР°
 
        // Index: 0=Data, 1=Data2
-       Data : array [0..3] of longword;                      // Смещение Данных в файле
-       DataLen : array [0..3] of longword;                   // Длина данных
-       compressed : array [0..3] of byte;              // 0 - без сжатия, 1 - ZIP;
+       Data : array [0..3] of longword;                      // РЎРјРµС‰РµРЅРёРµ Р”Р°РЅРЅС‹С… РІ С„Р°Р№Р»Рµ
+       DataLen : array [0..3] of longword;                   // Р”Р»РёРЅР° РґР°РЅРЅС‹С…
+       compressed : array [0..3] of byte;              // 0 - Р±РµР· СЃР¶Р°С‚РёСЏ, 1 - ZIP;
 
        reserved : array [0..7] of longword;
 
-       empty: TCRC; // Для выравнивания
+       empty: TCRC; // Р”Р»СЏ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ
        CRC: TCRC;
 end;
 
@@ -195,8 +195,8 @@ const szT_VV2_Parameters = sizeof(T_VV2_Parameters);
 
 
 Type T_VV2_WaveRes = record
-  Exist      : longword; // 0 -  нет; 1 - сигнал c железного канала; 2 - преобразованный
-  DT         : _T_VV2_DateTime;       //Время и дата проведения замера
+  Exist      : longword; // 0 -  РЅРµС‚; 1 - СЃРёРіРЅР°Р» c Р¶РµР»РµР·РЅРѕРіРѕ РєР°РЅР°Р»Р°; 2 - РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№
+  DT         : _T_VV2_DateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
   Tip        : longword;
   EdIzm      : longword;
@@ -220,14 +220,14 @@ const szT_VV2_WaveRes = sizeof(T_VV2_WaveRes);
 
 
 
-// Текущий замер с прибора
+// РўРµРєСѓС‰РёР№ Р·Р°РјРµСЂ СЃ РїСЂРёР±РѕСЂР°
 
 const _VV2_CurrentWaveMagic = $68FC452E;
 
 Type T_VV2_CurrentWave = record
   Magic           : longword;     // 0x68FC452E
   Device          : longword;    // prVV2          = 220
-  Align           : array [0..13] of longword; // добить до 64 байт
+  Align           : array [0..13] of longword; // РґРѕР±РёС‚СЊ РґРѕ 64 Р±Р°Р№С‚
 
   Wave            : T_VV2_WaveRes;
   Data            : array [0.._VV2_MaxPoint-1] of T_VV2_OnePoint;
@@ -244,58 +244,58 @@ const szT_VV2_CurrentWave = sizeof(T_VV2_CurrentWave);
 
 
 
-//------------------------------ Маршруты VV-2 ------------------------------
+//------------------------------ РњР°СЂС€СЂСѓС‚С‹ VV-2 ------------------------------
 
 
-//---------- Описание констант ----------
-const NameRoute_V2   = 64;   //Длина имени в маршруте (В Атланте = 60)
+//---------- РћРїРёСЃР°РЅРёРµ РєРѕРЅСЃС‚Р°РЅС‚ ----------
+const NameRoute_V2   = 64;   //Р”Р»РёРЅР° РёРјРµРЅРё РІ РјР°СЂС€СЂСѓС‚Рµ (Р’ РђС‚Р»Р°РЅС‚Рµ = 60)
       MaxRouteNode_V2 = 1024;
-      RouteVersion_V2 = $200; // Версия маршрутов 2.00
+      RouteVersion_V2 = $200; // Р’РµСЂСЃРёСЏ РјР°СЂС€СЂСѓС‚РѕРІ 2.00
 
 
 // TRouteNode_V2.Exists
-const rneFlagNone   = 0; // Не заполнено - не использовать
-      rneFlagFilled = 1; // Параметры заполнены
-      rneFlagReaded = 3; // rneFilled + Считан сигнал
+const rneFlagNone   = 0; // РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ - РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
+      rneFlagFilled = 1; // РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїРѕР»РЅРµРЅС‹
+      rneFlagReaded = 3; // rneFilled + РЎС‡РёС‚Р°РЅ СЃРёРіРЅР°Р»
 
-// Флажки 0xFFFFFFFF, чтобы можно было дописывать во Flash  без стирания
-const rneNone   = $FFFFFFFF; // Не заполнено - не использовать
-      rneFilled = (rneNone xor rneFlagFilled); // Параметры заполнены
-      rneReaded = (rneNone xor rneFlagReaded); // rneFilled + Считан сигнал
+// Р¤Р»Р°Р¶РєРё 0xFFFFFFFF, С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РґРѕРїРёСЃС‹РІР°С‚СЊ РІРѕ Flash  Р±РµР· СЃС‚РёСЂР°РЅРёСЏ
+const rneNone   = $FFFFFFFF; // РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ - РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
+      rneFilled = (rneNone xor rneFlagFilled); // РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїРѕР»РЅРµРЅС‹
+      rneReaded = (rneNone xor rneFlagReaded); // rneFilled + РЎС‡РёС‚Р°РЅ СЃРёРіРЅР°Р»
 
 
 
-//---------- Структура Элемент ----------
+//---------- РЎС‚СЂСѓРєС‚СѓСЂР° Р­Р»РµРјРµРЅС‚ ----------
 Type TRouteNode_V2 = record
 
       Exists       : longword;    // rneXXX
-      DataID       : longint;    // идентификатор замера во Flash или 0 или -1, если нет
+      DataID       : longint;    // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РјРµСЂР° РІРѕ Flash РёР»Рё 0 РёР»Рё -1, РµСЃР»Рё РЅРµС‚
 
       Name         : array [0..NameRoute_V2-1] of AnsiChar;
 
-      Order        : longword;      //Из Атланта; для точек должно быть >0 ; для станций и прочего = 0
+      Order        : longword;      //РР· РђС‚Р»Р°РЅС‚Р°; РґР»СЏ С‚РѕС‡РµРє РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ >0 ; РґР»СЏ СЃС‚Р°РЅС†РёР№ Рё РїСЂРѕС‡РµРіРѕ = 0
 
-// Только для точек
-      Tip          : longword;        //тип сигнала (сигнал/спектр)
-      EdIzm        : longword;      //единицы измерения
-      Channel      : longword;    //Канал 1..N; 0 - по-умолчанию
-      Lines        : longint;      //число линий в спектре
-      LoFreq       : longint;     //нижняя граничная частота, Гц
-      HiFreq       : longint;     //верхняя граничная частота, Гц
-      NAverg       : longint;     //число усреднений, только для спектра (может не использоваться прибором)
-      Stamper      : longword;    // 1 - старт по отметчику (может не использоваться прибором)
+// РўРѕР»СЊРєРѕ РґР»СЏ С‚РѕС‡РµРє
+      Tip          : longword;        //С‚РёРї СЃРёРіРЅР°Р»Р° (СЃРёРіРЅР°Р»/СЃРїРµРєС‚СЂ)
+      EdIzm        : longword;      //РµРґРёРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ
+      Channel      : longword;    //РљР°РЅР°Р» 1..N; 0 - РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
+      Lines        : longint;      //С‡РёСЃР»Рѕ Р»РёРЅРёР№ РІ СЃРїРµРєС‚СЂРµ
+      LoFreq       : longint;     //РЅРёР¶РЅСЏСЏ РіСЂР°РЅРёС‡РЅР°СЏ С‡Р°СЃС‚РѕС‚Р°, Р“С†
+      HiFreq       : longint;     //РІРµСЂС…РЅСЏСЏ РіСЂР°РЅРёС‡РЅР°СЏ С‡Р°СЃС‚РѕС‚Р°, Р“С†
+      NAverg       : longint;     //С‡РёСЃР»Рѕ СѓСЃСЂРµРґРЅРµРЅРёР№, С‚РѕР»СЊРєРѕ РґР»СЏ СЃРїРµРєС‚СЂР° (РјРѕР¶РµС‚ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёР±РѕСЂРѕРј)
+      Stamper      : longword;    // 1 - СЃС‚Р°СЂС‚ РїРѕ РѕС‚РјРµС‚С‡РёРєСѓ (РјРѕР¶РµС‚ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёР±РѕСЂРѕРј)
 
 
       Deep         : longint;
-      Parent       : longint;      // Индекс предка
-      ChildCount   : longint;  // Число подэлементов
-      Expanded     : longword;    // Узел дерева раскрыт (для поддержки дерева)
-      Marked       : longword;      // Узел дерева отмечен (на будущее)
+      Parent       : longint;      // РРЅРґРµРєСЃ РїСЂРµРґРєР°
+      ChildCount   : longint;  // Р§РёСЃР»Рѕ РїРѕРґСЌР»РµРјРµРЅС‚РѕРІ
+      Expanded     : longword;    // РЈР·РµР» РґРµСЂРµРІР° СЂР°СЃРєСЂС‹С‚ (РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РґРµСЂРµРІР°)
+      Marked       : longword;      // РЈР·РµР» РґРµСЂРµРІР° РѕС‚РјРµС‡РµРЅ (РЅР° Р±СѓРґСѓС‰РµРµ)
 
-      //  Для поддержки передачи и разборки в Атланте
-      ID           : longword;        // идентификатор точки
-      Offset       : longword;        // смещение в скачанном файле
-      Len          : longword;        // длина в скачанном файле
+      //  Р”Р»СЏ РїРѕРґРґРµСЂР¶РєРё РїРµСЂРµРґР°С‡Рё Рё СЂР°Р·Р±РѕСЂРєРё РІ РђС‚Р»Р°РЅС‚Рµ
+      ID           : longword;        // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РѕС‡РєРё
+      Offset       : longword;        // СЃРјРµС‰РµРЅРёРµ РІ СЃРєР°С‡Р°РЅРЅРѕРј С„Р°Р№Р»Рµ
+      Len          : longword;        // РґР»РёРЅР° РІ СЃРєР°С‡Р°РЅРЅРѕРј С„Р°Р№Р»Рµ
 
       Reserv       : array [0..3] of longword;
 
@@ -305,14 +305,14 @@ end;
 
 
 
-//---------- Заголовок структуры маршрута ----------
+//---------- Р—Р°РіРѕР»РѕРІРѕРє СЃС‚СЂСѓРєС‚СѓСЂС‹ РјР°СЂС€СЂСѓС‚Р° ----------
 Type TRouteHdr_V2 = record
 
-      Version      : longword;       // 0x200 для этой версии
+      Version      : longword;       // 0x200 РґР»СЏ СЌС‚РѕР№ РІРµСЂСЃРёРё
 
       Name         : array [0..NameRoute_V2-1] of AnsiChar;
 
-      Count        : longint;         // Число элементов Node
+      Count        : longint;         // Р§РёСЃР»Рѕ СЌР»РµРјРµРЅС‚РѕРІ Node
 
       Reserv       : array [0..15] of longword;
 
@@ -321,34 +321,34 @@ Type TRouteHdr_V2 = record
 end;
 
 
-//---------- Маршрут ----------
+//---------- РњР°СЂС€СЂСѓС‚ ----------
 Type TRoute_V2 = record
 
-     Hdr       : TRouteHdr_V2;           //заголовок маршрута
+     Hdr       : TRouteHdr_V2;           //Р·Р°РіРѕР»РѕРІРѕРє РјР°СЂС€СЂСѓС‚Р°
 
-     Node      : array [0..MaxRouteNode_V2-1] of TRouteNode_V2;    // элементы маршрута
+     Node      : array [0..MaxRouteNode_V2-1] of TRouteNode_V2;    // СЌР»РµРјРµРЅС‚С‹ РјР°СЂС€СЂСѓС‚Р°
 
 end;
 
 
 const szTRouteNode_V2 = sizeof(TRouteNode_V2);
       szTRouteHdr_V2  = sizeof(TRouteHdr_V2);
-      szTRoute_V2     = sizeof(TRoute_V2); // ~140Кб
+      szTRoute_V2     = sizeof(TRoute_V2); // ~140РљР±
 
 
 
 
 
 
-//------------------------------ Замер для Авроры ------------------------------
+//------------------------------ Р—Р°РјРµСЂ РґР»СЏ РђРІСЂРѕСЂС‹ ------------------------------
 
 
-// Замер СКЗ для Авроры
-const _VV2_CellMaxPoints       = 14; // Точек
-const _VV2_CellMaxAxes         = 3; // Направлений
+// Р—Р°РјРµСЂ РЎРљР— РґР»СЏ РђРІСЂРѕСЂС‹
+const _VV2_CellMaxPoints       = 14; // РўРѕС‡РµРє
+const _VV2_CellMaxAxes         = 3; // РќР°РїСЂР°РІР»РµРЅРёР№
 
 
-// Резерв 512байт для Авроровской диагностики
+// Р РµР·РµСЂРІ 512Р±Р°Р№С‚ РґР»СЏ РђРІСЂРѕСЂРѕРІСЃРєРѕР№ РґРёР°РіРЅРѕСЃС‚РёРєРё
 Type T_VV2_RMSDiag = record
   Reserv : array [0..128-1] of longword;
 end;
@@ -360,22 +360,22 @@ Type T_VV2_RMSRes = record
      //Exist   : longword;
      Exist   : word;
      Version : word;
-     DT      : _TDateTime;       //Время и дата проведения замера
+     DT      : _TDateTime;       //Р’СЂРµРјСЏ Рё РґР°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РјРµСЂР°
 
      CH      : longword;
 
      Value : array[0.._VV2_CellMaxPoints-1,0.._VV2_CellMaxAxes-1,0..2] of single;
      Temp  : array[0.._VV2_CellMaxPoints-1,0.._VV2_CellMaxAxes-1] of single;
 
-     PointReaded : array [0.._VV2_CellMaxPoints-1] of byte; // Битовая маска для каждой точки, прочитан ли канал: 1 - В; 2 - П; 4 - О;
-     MeasNum     : byte; // Число считанных точек*направлений 0..42; Если >1 - показываем таблицу, Если<=1 - показываем RMS
+     PointReaded : array [0.._VV2_CellMaxPoints-1] of byte; // Р‘РёС‚РѕРІР°СЏ РјР°СЃРєР° РґР»СЏ РєР°Р¶РґРѕР№ С‚РѕС‡РєРё, РїСЂРѕС‡РёС‚Р°РЅ Р»Рё РєР°РЅР°Р»: 1 - Р’; 2 - Рџ; 4 - Рћ;
+     MeasNum     : byte; // Р§РёСЃР»Рѕ СЃС‡РёС‚Р°РЅРЅС‹С… С‚РѕС‡РµРє*РЅР°РїСЂР°РІР»РµРЅРёР№ 0..42; Р•СЃР»Рё >1 - РїРѕРєР°Р·С‹РІР°РµРј С‚Р°Р±Р»РёС†Сѓ, Р•СЃР»Рё<=1 - РїРѕРєР°Р·С‹РІР°РµРј RMS
      Align       : byte;
 
      Reserv      : array [0..12-1] of longword;
 
      Diag        : T_VV2_RMSDiag;
 
-     empty       : TCRC; // Для выравнивания
+     empty       : TCRC; // Р”Р»СЏ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ
      CRC         : TCRC;
 end;
 
