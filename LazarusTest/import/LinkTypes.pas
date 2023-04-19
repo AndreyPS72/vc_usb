@@ -392,7 +392,7 @@ Type
     AllClaster  : TWord2;
     Data        : array [1..9] of byte;
     CRC         : TCRC;
-    Align64     : array[1..14]of byte; // Добивка до 64 байт, но полезного только 50 байт
+//    Align64     : array[1..14]of byte; // Добивка до 64 байт, но полезного только 50 байт
   end;
 
 const
@@ -816,7 +816,7 @@ initialization
 Assert(sizeof(TSign) = 3);
 Assert(sizeof(TCommand) = 14);
 Assert(szTInfoPribor = 50);
-Assert(szTInfoPriborFull = 64);
+//Assert(szTInfoPriborFull = 64);
 Assert(sizeof(TLinkFrame) = 12);
 Assert(sizeof(TFrameWrite) = 520);
 Assert(sizeof(TLinkList) = 64);
