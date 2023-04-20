@@ -12,7 +12,7 @@ uses
 
 
 function InitPort(): integer; { инициализация порта }
-procedure PortClose();
+procedure DonePort();
 procedure FillCommand(aCommand: byte;
 	aParam1, aParam2: TWord2;
     aParam1dop, aParam2dop: TWord2;
@@ -25,7 +25,7 @@ function SendCommandRepeat(
     ): integer;
 function StartReadCommand(
 	Command: byte;
-    Param1, Param2, Param1dop, Param2dop: TWord4;
+    Param1, Param2, Param1dop: TWord4;
     FirstFrameCallback: TFirstFrameCallback;
     ReadingFrameCallback: TReadingFrameCallback;
     EndReadingCallback: TEndReadingCallback): integer;
@@ -63,7 +63,7 @@ begin
 
     	if (LinkPort<>nil) and
         	not (LinkPort is TUsbLinkPort) then begin
-            PortClose();
+            DonePort();
         end;
 
     	if LinkPort=nil then
@@ -104,7 +104,7 @@ begin
 end;
 
 
-procedure PortClose();
+procedure DonePort();
 begin
 
 	if (LinkPort<>nil) then
@@ -219,7 +219,7 @@ begin
             	result := ErrorDataRead;
             	Exit;
         	end;
-            DelayWithSleep(10); //todo
+            DelayWithSleep(1); //todo
         end;
         Application.ProcessMessages();
 
@@ -232,12 +232,12 @@ var tmpbuf: array[1..64 * 1024] of Byte;
 
 function StartReadCommand(
 	Command: byte;
-    Param1, Param2, Param1dop, Param2dop: TWord4;
+    Param1, Param2, Param1dop: TWord4;
     FirstFrameCallback: TFirstFrameCallback;
     ReadingFrameCallback: TReadingFrameCallback;
     EndReadingCallback: TEndReadingCallback): integer;
 var Frame: TLinkFrame;
-    i: integer;
+    FrameNum: integer;
 begin
     result := ErrorUnknown;
 
@@ -245,7 +245,7 @@ begin
 
         //послать команду прибору и получить ответ
         result := SendCommandRepeat(Command,
-            Param1, Param2, Param1dop, Param2dop,
+            Param1, Param2, Param1dop, 0,
             @Frame, SizeOf(TLinkFrame));
         if result <> LinkResultOk then begin
             abort;
@@ -255,19 +255,19 @@ begin
             (FirstFrameCallback(Frame) = LinkResultOk) then begin
             //считать все фреймы с прибора
 
-            for i := 1 to Frame.Count do begin
+            for FrameNum := 1 to Frame.Count do begin
                 result := SendCommandRepeat(Command,
-                    Param1, Param2, Param1dop, i,
+                    Param1, Param2, Param1dop, FrameNum,
                     @tmpbuf, Frame.Length);
                 if result <> LinkResultOk then begin
-                    abort;
+                    break;
                 end;
                 if (Assigned(ReadingFrameCallback)) then
-                    ReadingFrameCallback(@tmpbuf, Frame.Length, i);
+                    ReadingFrameCallback(@tmpbuf, Frame.Length, FrameNum);
 
                 if StopLink then begin
                     result := ErrorLinkStoping;
-                    Exit;
+                    break;
                 end;
 
                 Application.ProcessMessages();
@@ -276,7 +276,6 @@ begin
             if (Assigned(EndReadingCallback)) then
                 EndReadingCallback();
 
-            result := LinkResultOk;
         end else begin
             result := ErrorClassAlreadyExist;
         end;

@@ -55,7 +55,7 @@ uses SysUtils, LCLIntf, LCLType, LMessages, Forms
 {$IFDEF WINDOWS}
      , Windows
 {$ENDIF}
-     , NewDateTime
+     , NEWDateTime
      , LConvEncoding
      , LazFileUtils
      ;

@@ -10,7 +10,7 @@ object FormViewMeasurement: TFormViewMeasurement
   Font.Height = 24
   OnClose = FormClose
   OnDestroy = FormDestroy
-  Position = poScreenCenter
+  Position = poMainFormCenter
   LCLVersion = '2.2.0.4'
   object ChartMeasurement: TChart
     Left = 0

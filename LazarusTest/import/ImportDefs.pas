@@ -24,26 +24,26 @@ Type TLocalTagTable_x64 = array [1..LocalTagTableKol] of TTagTableRecord_x64;
 Type PBufOneRec =^TBufOneRec;
      TBufOneRec = record
        Name : UnicodeString;
-       Tip ,
-       EdIzm ,
-       Option ,
-       AllX
+       Tip ,                 // ztXXX - Тип замера
+       EdIzm ,               // eiXXX - Размерность информации
+       Option ,              // opXXX - Флажки опций замера
+       AllX                  // Количество отсчётов
            : integer;
-       SKZ ,
-       Faza ,
-       Ampl ,
-       X0 ,
-       dX ,
-       XN
+       SKZ ,                 // СКЗ виброскорости, мм/сек
+       Faza ,                // Начальная фаза сигнала, град (обычно =0)
+       Ampl ,                // Максимальная амплитуда отсчётов по модулю
+       X0 ,                  // Значение отсчёта с индексом 0
+       dX ,                  // Шаг между отсчетами (сек, Гц)
+       XN                    // Значение последнего отсчёта = X0 + dX * (AllX - 1)
            : double;
 
-       ZDate,
-       ZTime : array [0..2] of word;
+       ZDate,                        // Дата DD,MM,YYYY
+       ZTime : array [0..2] of word; // Время HH,MM,SS
 
-       IsStamper: boolean;
-       Len: integer;
+       IsStamper: boolean;           // True - это канал отметчика
+       Len: integer;                 // Длина массива данных в байтах
 
-       Vals: PRealArray;
+       Vals: PRealArray;             // Указатель на массив double с отсчётами
 
        LTT_x64  : TLocalTagTable_x64; // Таблица для дополнительных данных, передаваемых с замером. Например, ФЧХ, голос.
 

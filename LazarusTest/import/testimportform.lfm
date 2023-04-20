@@ -19,7 +19,6 @@ object FormTestImport: TFormTestImport
     Height = 76
     Top = 24
     Width = 320
-    Cancel = True
     Caption = 'Close'
     OnClick = ButtonCloseClick
     TabOrder = 1
@@ -72,5 +71,14 @@ object FormTestImport: TFormTestImport
     Caption = 'Get Measurement'
     OnClick = ButtonGetMeasurementClick
     TabOrder = 5
+  end
+  object ButtonStop: TButton
+    Left = 456
+    Height = 76
+    Top = 200
+    Width = 320
+    Caption = 'Stop'
+    OnClick = ButtonStopClick
+    TabOrder = 6
   end
 end

@@ -42,7 +42,7 @@ uses SysUtils
 const _Viana2_MaxDataSize = _Viana2_CHANNEL_COUNT * _Viana2_MAX_POINT_RECORDER;
 
 var
-  Res: _Viana2_TMeas;
+  MeasHdr: _Viana2_TMeas;
   MeasData : array [0.._Viana2_MaxDataSize-1] of _Viana2_TOnePoint;
 
 
@@ -94,19 +94,19 @@ try
   FileSeek(F,Offset,0);
 
   FileRead(F,Param,szT_VV2_Parameters);
-  FileRead(F,Res,Param.DataLen[0]);
+  FileRead(F,MeasHdr,Param.DataLen[0]);
   DataLen:=Param.DataLen[1];
   if (DataLen>sizeof(MeasData)) then
      DataLen:=sizeof(MeasData);
   FileRead(F,MeasData,DataLen);
 
-if (Res.Exist=_Viana2_teNo) then begin
+if (MeasHdr.Exist=_Viana2_teNo) then begin
    Result:=0;
    Exit;
 end;
 
 
-if (CheckCRC(Res,sz_Viana2_TMeas,Res.CRC)=False) then begin
+if (CheckCRC(MeasHdr,sz_Viana2_TMeas,MeasHdr.CRC)=False) then begin
    Result:=0;
    Exit;
 end;
@@ -117,98 +117,83 @@ IndexData:=0;
 
 for Index:=0 to _Viana2_CHANNEL_COUNT-1 do begin
 
-    if (Res.CH[Index].Exist=_Viana2_teNo) then begin
+    if (MeasHdr.CH[Index].Exist=_Viana2_teNo) then begin
        continue;
     end;
 
     typ:=_Viana2_ztWaveform;
-    if (Res.CH[Index].Table[typ].Exist=_Viana2_teNo) then begin
+    if (MeasHdr.CH[Index].Table[typ].Exist=_Viana2_teNo) then begin
     	typ:=_Viana2_ztSpectrum;
-    	if (Res.CH[Index].Table[typ].Exist=_Viana2_teNo) then
+    	if (MeasHdr.CH[Index].Table[typ].Exist=_Viana2_teNo) then
         	continue;
     end;
 
-    if (Res.CH[Index].Table[typ].Types>_Viana2_ztEnvSpectrum) then
+    if (MeasHdr.CH[Index].Table[typ].Types>_Viana2_ztEnvSpectrum) then
        continue;
 
 
-    if (Res.CH[Index].Table[typ].Units>=_Viana2_eiCount) then
+    if (MeasHdr.CH[Index].Table[typ].Units>=_Viana2_eiCount) then
        continue;
 
 
     CreateRec(Rec);
 
-    if (Res.CH[Index].Table[typ].Types=_Viana2_ztSpectrum) then Rec^.Tip:=ztSpectr
-    else if (Res.CH[Index].Table[typ].Types=_Viana2_ztEnvelope) then Rec^.Tip:=ztEnvelope
-    else if (Res.CH[Index].Table[typ].Types=_Viana2_ztEnvSpectrum) then Rec^.Tip:=ztSpectrOgib
+    if (MeasHdr.CH[Index].Table[typ].Types=_Viana2_ztSpectrum) then Rec^.Tip:=ztSpectr
+    else if (MeasHdr.CH[Index].Table[typ].Types=_Viana2_ztEnvelope) then Rec^.Tip:=ztEnvelope
+    else if (MeasHdr.CH[Index].Table[typ].Types=_Viana2_ztEnvSpectrum) then Rec^.Tip:=ztSpectrOgib
        else Rec^.Tip:=ztSignal;
 
-    if (Res.CH[Index].Table[typ].Units=_Viana2_eiAcceleration) then Rec^.EdIzm:=eiAcceleration
-    else if (Res.CH[Index].Table[typ].Units=_Viana2_eiVelocity) then Rec^.EdIzm:=eiVelocity
-    else if (Res.CH[Index].Table[typ].Units=_Viana2_eiDisplacement) then Rec^.EdIzm:=eiDisplacement
+    if (MeasHdr.CH[Index].Table[typ].Units=_Viana2_eiAcceleration) then Rec^.EdIzm:=eiAcceleration
+    else if (MeasHdr.CH[Index].Table[typ].Units=_Viana2_eiVelocity) then Rec^.EdIzm:=eiVelocity
+    else if (MeasHdr.CH[Index].Table[typ].Units=_Viana2_eiDisplacement) then Rec^.EdIzm:=eiDisplacement
     else Rec^.EdIzm:=eiVolt;
 
     if (Index = _Viana2_CH_TACH) then begin
-        if (Res.MeasSetup.MeasurementMode = _Viana2_SETUP_MSM_UHF) or
-            (Res.MeasSetup.Path = _Viana2_SETUP_MSP_UHF)
+        if (MeasHdr.MeasSetup.MeasurementMode = _Viana2_SETUP_MSM_UHF) or
+            (MeasHdr.MeasSetup.Path = _Viana2_SETUP_MSP_UHF)
         then begin
             Rec^.EdIzm:=eiVolt;
         end
         else
-        if (Res.MeasSetup.MeasurementMode = _Viana2_SETUP_MSM_CURRENT)
+        if (MeasHdr.MeasSetup.MeasurementMode = _Viana2_SETUP_MSM_CURRENT)
         then begin
            Rec^.EdIzm:=_Viana2_eiAMPER;
         end
     else begin
        Rec^.EdIzm:=eiVolt;
-       		Rec^.IsStamper:=True;
+       Rec^.IsStamper:=True;
     end;
     end;
 
 
-    Rec^.X0:=Res.CH[Index].Table[typ].X0;
-    Rec^.AllX:=Res.CH[Index].Table[typ].AllX;
-    Rec^.dX:=Res.CH[Index].Table[typ].dX;
+    Rec^.X0:=MeasHdr.CH[Index].Table[typ].X0;
+    Rec^.AllX:=MeasHdr.CH[Index].Table[typ].AllX;
+    Rec^.dX:=MeasHdr.CH[Index].Table[typ].dX;
     Rec^.XN:= Rec^.X0 + (Rec^.AllX-1)*Rec^.dX;
     Rec^.Ampl:=0;
 
-       AllocRec(Rec);
+    AllocRec(Rec);
 
-       if (Res.CH[Index].Table[typ].DataFormat and _Viana2_dfCOMLEX_VALUE) <> 0 then begin
-          // комплексный
-          for k:=1 to Rec^.AllX do begin
-            Rec^.Vals^[k]:=sqrt(sqr(MeasData[IndexData+k*2-2])+sqr(MeasData[IndexData+k*2-1])) *Res.CH[Index].Table[typ].Scale;
-            if abs(Rec^.Vals^[k])>Rec^.Ampl then
-               Rec^.Ampl:=abs(Rec^.Vals^[k]);
-          end;
-       end else begin
-          for k:=1 to Rec^.AllX do begin
-            if (Res.CH[Index].Table[typ].DataFormat and _Viana2_dfLOG_VALUE) <> 0
-            then Rec^.Vals^[k]:=Power(10.0, MeasData[IndexData+k-1])*Res.CH[Index].Table[typ].Scale
-            else Rec^.Vals^[k]:=MeasData[IndexData+k-1]*Res.CH[Index].Table[typ].Scale;
-            if abs(Rec^.Vals^[k])>Rec^.Ampl then
-               Rec^.Ampl:=abs(Rec^.Vals^[k]);
-          end;
-       end;
-(*
-    if (Rec^.Tip=ztEnvelope) and (Rec^.AllX>0) then begin
-          // Огибающую усадить на ноль
-          sum:=0;
-          for k:=1 to Rec^.AllX do begin
-            sum:=sum+Rec^.Vals^[k];
-          end;
-          sum:=sum/Rec^.AllX;
-          Rec^.Ampl:=0;
-          for k:=1 to Rec^.AllX do begin
-            Rec^.Vals^[k]:=Rec^.Vals^[k]-sum;
-            if abs(Rec^.Vals^[k])>Rec^.Ampl then
-               Rec^.Ampl:=abs(Rec^.Vals^[k]);
-          end;
+    if (MeasHdr.CH[Index].Table[typ].DataFormat and _Viana2_dfCOMLEX_VALUE) <> 0 then begin
+      // комплексный спектр -> переводим в амплитудный
+      for k:=1 to Rec^.AllX do begin
+        Rec^.Vals^[k]:=sqrt(sqr(MeasData[IndexData+k*2-2])+sqr(MeasData[IndexData+k*2-1])) *MeasHdr.CH[Index].Table[typ].Scale;
+        if abs(Rec^.Vals^[k])>Rec^.Ampl then
+           Rec^.Ampl:=abs(Rec^.Vals^[k]);
+      end;
+    end else begin
+      for k:=1 to Rec^.AllX do begin
+        if (MeasHdr.CH[Index].Table[typ].DataFormat and _Viana2_dfLOG_VALUE) <> 0
+        then Rec^.Vals^[k]:=Power(10.0, MeasData[IndexData+k-1])*MeasHdr.CH[Index].Table[typ].Scale // Логарифмический формат = 10^Val
+        else Rec^.Vals^[k]:=MeasData[IndexData+k-1]*MeasHdr.CH[Index].Table[typ].Scale;
+        if abs(Rec^.Vals^[k])>Rec^.Ampl then
+           Rec^.Ampl:=abs(Rec^.Vals^[k]);
+      end;
     end;
-*)
+
     Rec^.Option:=0;
 
-    DateTimeMulti(Res.DT, Rec^.ZDate[2], Rec^.ZDate[1], Rec^.ZDate[0], Rec^.ZTime[0], Rec^.ZTime[1], Rec^.ZTime[2]);
+    DateTimeMulti(MeasHdr.DT, Rec^.ZDate[2], Rec^.ZDate[1], Rec^.ZDate[0], Rec^.ZTime[0], Rec^.ZTime[1], Rec^.ZTime[2]);
 
     if Rec^.ZDate[2]<100 then
        Rec^.ZDate[2]:=Rec^.ZDate[2]+2000;
@@ -218,7 +203,7 @@ for Index:=0 to _Viana2_CHANNEL_COUNT-1 do begin
 
     Result:=1;
 
-    IndexData:=IndexData+Res.CH[Index].Table[typ].LenT div sz_Viana2_TOnePoint;
+    IndexData:=IndexData+MeasHdr.CH[Index].Table[typ].LenT div sz_Viana2_TOnePoint;
 
 end;
 

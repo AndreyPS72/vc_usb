@@ -36,6 +36,8 @@ uses ImportDefs
      , ImportViana2
      , ImportKorsar
      , ImportViana1
+     , ImportViana4
+     , ImportDPK
      , ImportVV2
      ;
 
@@ -74,6 +76,12 @@ begin
   end else
   if (aDevice = prViana1) then begin
      res := DoImportViana1(aFilePath, aDevice, ListBoxData);
+  end else
+  if (aDevice = prViana4) then begin
+     res := DoImportViana4(aFilePath, aDevice, ListBoxData);
+  end else
+  if (aDevice = prDPK) then begin
+     res := DoImportDPK(aFilePath, aDevice, ListBoxData);
   end else
   if (aDevice = prVV2) then begin
      res := DoImportVV2(aFilePath, aDevice, ListBoxData);

@@ -14,6 +14,7 @@ type
   { TFormTestImport }
 
   TFormTestImport = class(TForm)
+    ButtonStop: TButton;
     ButtonGetMeasurement: TButton;
     ButtonClose: TButton;
     ButtonDeviceInfo: TButton;
@@ -24,6 +25,7 @@ type
     procedure ButtonDeviceInfoClick(Sender: TObject);
     procedure ButtonGetListClick(Sender: TObject);
     procedure ButtonGetMeasurementClick(Sender: TObject);
+    procedure ButtonStopClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -83,7 +85,9 @@ begin
     LogText.Items.Add(Format(PriborType, [Info.Pribor]));
     if (Info.Pribor = prViana1) then LogText.Items.Add(Format(PriborName, ['ViAna-1']))
     else if (Info.Pribor = prViana2) then LogText.Items.Add(Format(PriborName, ['ViAna-2']))
-    else if (Info.Pribor = prDiana2Rev2) then LogText.Items.Add(Format(PriborName, ['Diana-2M']))
+    else if (Info.Pribor = prViana4) then LogText.Items.Add(Format(PriborName, ['ViAna-4']))
+    else if (Info.Pribor = prDPK) then LogText.Items.Add(Format(PriborName, ['ДПК-Вибро']))
+    else if (Info.Pribor = prDiana2Rev2) then LogText.Items.Add(Format(PriborName, ['Диана-2М']))
     else if (Info.Pribor = prVV2) then LogText.Items.Add(Format(PriborName, ['Vibro Vision-2']));
 
     if
@@ -299,7 +303,6 @@ var TmpFilePath: string = '';
 
 // FrameNumber = 1 to Frame.Count
 function DataReadingFrame109(Buf: pointer; BufLen: Longword; FrameNumber: Longint): Longint; stdcall;
-var i: integer;
 begin
     result := ErrorUnknown;
     try
@@ -332,7 +335,7 @@ begin
      TestPribor();
 
   res:= StartReadCommand(cmdReadListZamer,
-                    0,0,0,0,
+                    0,0,0,
                     ListFirstFrame, ListReadingFrame, ListEndReading);
 
   Result := (res = LinkResultOk);
@@ -350,7 +353,7 @@ begin
         TestPribor();
 
      res:= StartReadCommand(cmdReadData,
-                     pntr^.Types, pntr^.ID_Low, pntr^.ID_High, 0,
+                     pntr^.Types, pntr^.ID_Low, pntr^.ID_High,
                      ListFirstFrame, DataReadingFrame109, ListEndReading);
 
      if (TmpFileHandle > 0) then begin
@@ -376,7 +379,8 @@ end;
 procedure TFormTestImport.ButtonGetListClick(Sender: TObject);
 begin
     StopLink := False;
-    LogText.Items.Clear;
+    ClearListObjects();
+
     GetMeasurementsList();
 
 end;
@@ -387,9 +391,16 @@ begin
 if FormTestImport.LogText.ItemIndex < 0 then
    Exit;
 
+StopLink := False;
+
 pntr:=PLinkList(LogText.Items.Objects[FormTestImport.LogText.ItemIndex]);
 if (pntr^.Types = equFatTypeData) then
    ShowMeasurementGraph(Info.Pribor, pntr);
+end;
+
+procedure TFormTestImport.ButtonStopClick(Sender: TObject);
+begin
+StopLink := True;
 end;
 
 
@@ -398,12 +409,14 @@ end;
 procedure TFormTestImport.FormCreate(Sender: TObject);
 begin
 
-    Info.Pribor := 0;
+    FillChar(Info, szTInfoPribor, 0);
 
     SetDefaultLinkParams(LinkParams);
 
-    if InitPort() <> LinkResultOk then
+    if InitPort() <> LinkResultOk then begin
+       CreateMessageDialog('No lib_usb', mtError,[mbOk]);
 	   Exit;
+    end;
 
 end;
 
@@ -427,8 +440,9 @@ end;
 procedure TFormTestImport.FormDestroy(Sender: TObject);
 begin
 StopLink := True;
+Application.ProcessMessages;
 ClearListObjects();
-PortClose();
+DonePort();
 end;
 
 
