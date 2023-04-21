@@ -34,6 +34,8 @@ uses SysUtils
      , LinkTypesVV2
 {$IFDEF NeedImport}
      , DefDB
+     , StrConst
+     , LinkLang
 {$ENDIF}
      ;
 
@@ -59,8 +61,8 @@ var
   Rec: PBufOneRec;
   sum: double;
 
-const Str8521 ='Отметчик №%3.3d в %s от %s';
-      Str8522 ='Замер    №%3.3d';
+const Str8521a ='Отметчик №%3.3d в %s от %s';
+      Str8522a ='Замер    №%3.3d';
 
 
 function GenerateName(Rec: PBufOneRec):UnicodeString;
@@ -77,8 +79,8 @@ begin
     if (Rec^.IsStamper) then Result:=Format((str8521),[Param.Num,TimeToStr(DT),DateToStr(DT),GetShortNameByTip(Rec.Tip),GetNameByEdIzm(Rec.EdIzm)])
                         else Result:=Format((str8520),[Param.Num,TimeToStr(DT),DateToStr(DT),GetShortNameByTip(Rec.Tip),GetNameByEdIzm(Rec.EdIzm)]);
 {$ELSE}
-    if (Rec^.IsStamper) then Result:=Format(Str8521,[Param.Num,TimeToStr(DT),DateToStr(DT)])
-                        else Result:=Format(Str8522,[Param.Num,TimeToStr(DT),DateToStr(DT)]);
+    if (Rec^.IsStamper) then Result:=Format(Str8521a,[Param.Num,TimeToStr(DT),DateToStr(DT)])
+                        else Result:=Format(Str8522a,[Param.Num,TimeToStr(DT),DateToStr(DT)]);
 {$ENDIF}
 end;
 

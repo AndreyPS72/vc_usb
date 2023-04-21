@@ -34,6 +34,8 @@ uses SysUtils
      , LinkTypesViana, DBox
 {$IFDEF NeedImport}
      , DefDB
+     , StrConst
+     , LinkLang
 {$ENDIF}
      ;
 
