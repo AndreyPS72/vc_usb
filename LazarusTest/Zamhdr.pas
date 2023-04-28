@@ -4,9 +4,12 @@
 
     Описание структур нового файла замера версии 3.01 для Atlant
     Начато                              01.10.97
-    Последние изменения и дополнения    09.09.19
+    Последние изменения и дополнения    27.04.23
 
     History :
+
+    27.04.23    Уменьшил MaxShortStamps
+                Переименовал TIntegerArray в TI16Array и TRealArray в TReal64Array (совпало со стандартным типом)
 
     09.09.19    Сделал MaxShortStamps = 128*1024*1024; иначе срабатывал RangeCheck
 
@@ -127,11 +130,11 @@ const iFalse    = 0;
 
 {------------------------------------------------------------------------------}
 { Всякое общее }
-const MaxShortStamps = 128*1024*1024;
-Type PIntegerArray =^TIntegerArray;
-     TIntegerArray = array [1..MaxShortStamps] of Ti16;
-     PRealArray =^TRealArray;
-     TRealArray = array [1..MaxShortStamps] of TReal64;
+const MaxShortStamps = 8*1024;
+Type PI16Array =^TI16Array;
+     TI16Array = array [1..MaxShortStamps] of Ti16;
+     PReal64Array =^TReal64Array;
+     TReal64Array = array [1..MaxShortStamps] of TReal64;
 
      { Масштабный коэфициент по умолчанию }
 const MaxIntStamp = 15000;

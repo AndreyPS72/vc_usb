@@ -43,7 +43,7 @@ Type PBufOneRec =^TBufOneRec;
        IsStamper: boolean;           // True - это канал отметчика
        Len: integer;                 // Длина массива данных в байтах
 
-       Vals: PRealArray;             // Указатель на массив double с отсчётами
+       Vals: PReal64Array;             // Указатель на массив double с отсчётами
 
        LTT_x64  : TLocalTagTable_x64; // Таблица для дополнительных данных, передаваемых с замером. Например, ФЧХ, голос.
 
