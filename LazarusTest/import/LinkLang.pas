@@ -1,4 +1,4 @@
-﻿unit LinkLang;
+unit LinkLang;
 
 {$MODE DelphiUnicode}
 {$CODEPAGE UTF8}

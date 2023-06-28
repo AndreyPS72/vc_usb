@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, tachartlazaruspkg, LinkTypes,
-  TestViewForm, TestImportForm;
+  TestViewForm, TestImportForm, TestViewRMSForm;
 
 {$R *.res}
 
@@ -28,6 +28,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormTestImport, FormTestImport);
   Application.CreateForm(TFormViewMeasurement, FormViewMeasurement);
+  Application.CreateForm(TFormViewRMS, FormViewRMS);
   Application.Run;
 end.
 

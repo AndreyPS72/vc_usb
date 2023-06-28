@@ -138,7 +138,8 @@ Const
         // param2    - размер
         // param2dop -
 
-//notused  cmdReadRMS          = 18;
+    // param1    - номер замера 1..N
+    cmdReadRMS          = 18; // загрузить замер СКЗ для ПО Аврора
 
 //notused  cmdWriteDiagPsp     = 19; //загрузить файл паспорта
         // param1    -

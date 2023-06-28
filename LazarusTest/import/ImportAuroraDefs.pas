@@ -11,7 +11,8 @@ type
   u16 = word;
 
 //--- структура одной точки виброметра
-  TVibroOnePoint = record
+  PVibroOnePoint =^TVibroOnePoint;
+  TVibroOnePoint = packed record
     PIK,
     RMS,
     PtP   : array[1..3] of single;
@@ -20,7 +21,8 @@ type
   end;
 
 //--- структура виброметра
-  TVibroValue = record
+  PVibroValue =^TVibroValue;
+  TVibroValue = packed record
     Point      : array[1..42] of TVibroOnePoint;
     PeakFactor : array[1..4] of byte; //пик фактор
     Ch         : array[1..4] of byte; //номер канала данных
@@ -30,9 +32,10 @@ type
     CRC        : TCRC;
   end;
 
-  TKorsarFrameWrite = record
+  PKorsarFrameWrite =^TKorsarFrameWrite;
+  TKorsarFrameWrite = packed record
     Sign   : TSign;
-    Numer  : byte;
+    result : byte;
     Hour, Min, Sec,
     Year, Month, Day : byte;
     Data   : TVibroValue;
@@ -40,8 +43,18 @@ type
     CRC    : TCRC;
   end;
 
+const
+  szTVibroOnePoint = sizeof(TVibroOnePoint);
+  szTVibroValue = sizeof(TVibroValue);
+  szTKorsarFrameWrite = sizeof(TKorsarFrameWrite);
+
 
 implementation
+
+initialization
+Assert(szTVibroOnePoint = 44);
+Assert(szTVibroValue = 1900);
+Assert(szTKorsarFrameWrite = 1914);
 
 end.
 

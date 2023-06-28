@@ -7,6 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls
   , LinkTypes
+  , ImportAuroraDefs
   ;
 
 type
@@ -14,8 +15,9 @@ type
   { TFormTestImport }
 
   TFormTestImport = class(TForm)
+    ButtonGetList1: TButton;
     ButtonStop: TButton;
-    ButtonGetMeasurement: TButton;
+    ButtonViewMeasurement: TButton;
     ButtonClose: TButton;
     ButtonDeviceInfo: TButton;
     ButtonGetList: TButton;
@@ -23,8 +25,9 @@ type
     pbBar: TProgressBar;
     procedure ButtonCloseClick(Sender: TObject);
     procedure ButtonDeviceInfoClick(Sender: TObject);
+    procedure ButtonGetList1Click(Sender: TObject);
     procedure ButtonGetListClick(Sender: TObject);
-    procedure ButtonGetMeasurementClick(Sender: TObject);
+    procedure ButtonViewMeasurementClick(Sender: TObject);
     procedure ButtonStopClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -35,7 +38,9 @@ type
 
     function TestPribor(): boolean;
     function GetMeasurementsList(): boolean;
+    function GetRMSMeasurementsList(): boolean;
     function ShowMeasurementGraph(aDevice: TWord4; pntr: PLinkList): boolean;
+    function ShowMeasurementRMS(aDevice: TWord4; pntr: PKorsarFrameWrite): boolean;
 
   public
 
@@ -49,6 +54,7 @@ uses LinkParamsDefs
      , LinkTestPort
      , LConvEncoding
      , TestViewForm
+     , TestViewRMSForm
      ;
 
 
@@ -88,7 +94,9 @@ begin
     else if (Info.Pribor = prViana4) then LogText.Items.Add(Format(PriborName, ['ViAna-4']))
     else if (Info.Pribor = prDPK) then LogText.Items.Add(Format(PriborName, ['ДПК-Вибро']))
     else if (Info.Pribor = prDiana2Rev2) then LogText.Items.Add(Format(PriborName, ['Диана-2М']))
-    else if (Info.Pribor = prVV2) then LogText.Items.Add(Format(PriborName, ['Vibro Vision-2']));
+    else if (Info.Pribor = prVV2) then LogText.Items.Add(Format(PriborName, ['Vibro Vision-2']))
+    else if (Info.Pribor = prKorsar) then LogText.Items.Add(Format(PriborName, ['Корсар']))
+    ;
 
     if
       (Info.Pribor = prDiana) or
@@ -169,6 +177,17 @@ end;
 
 
 
+procedure TFormTestImport.ButtonGetList1Click(Sender: TObject);
+begin
+StopLink := False;
+ClearListObjects();
+
+GetRMSMeasurementsList();
+
+end;
+
+
+
 
 function ListFirstFrame(Frame:TLinkFrame):Longint; stdcall;
 begin
@@ -196,10 +215,15 @@ end;
 function GetDateTimeMegaStr(var aDT: TDateTimeMega): string;
 var DT: TDateTime;
 begin
+Result:='';
+try
      DT := EncodeDate(aDT.tm_year, aDT.tm_month, aDT.tm_day) +
            EncodeTime(aDT.tm_hh, aDT.tm_mm, aDT.tm_sec, 0);
 
      Result:=DateToStr(DT)+' '+TimeToStr(DT);
+
+except
+end;
 
 end;
 
@@ -264,6 +288,8 @@ begin
   result:=ErrorUnknown;
 
 try
+    if GetIDFromList(@PFrameList(buf)^.List) = 0 then
+       Exit;
 (*
     len:=BufLen-
        SizeOf(PFrameList(buf)^.Sign)-
@@ -343,6 +369,42 @@ end;
 
 
 
+
+
+function TFormTestImport.GetRMSMeasurementsList(): boolean;
+var res: integer;
+    num: integer;
+    Frame: TKorsarFrameWrite;
+    DT: TDateTime;
+    pntr: pointer;
+begin
+  Result := False;
+
+  if Info.Pribor = 0 then
+     TestPribor();
+
+  num:=1; // Перебираем номера замеров
+  while num<=999 do begin
+      res := SendCommandRepeat(cmdReadRMS, num, 0, 0, 0, @Frame, szTKorsarFrameWrite);
+      if res <> LinkResultOk then
+          break;
+      if Frame.result<>1 then
+         break;
+
+      DT:=EncodeDate(Frame.Year+2000, Frame.Month, Frame.Day) + EncodeTime(Frame.Hour, Frame.Min, Frame.Sec,0);
+      pntr := GetMem(szTKorsarFrameWrite);
+      Move(Frame, pntr^, szTKorsarFrameWrite);
+      LogText.Items.AddObject('    RMS #'+IntToStr(num)+ ' ' + DateTimeToStr(DT), pntr);
+
+      inc(num);
+  end;
+
+  Result := LogText.Items.Count > 0;
+end;
+
+
+
+
 function TFormTestImport.ShowMeasurementGraph(aDevice: TWord4; pntr: PLinkList): boolean;
 var res: integer;
 begin
@@ -376,6 +438,21 @@ end;
 
 
 
+
+function TFormTestImport.ShowMeasurementRMS(aDevice: TWord4; pntr: PKorsarFrameWrite): boolean;
+begin
+
+     Result := False;
+     if aDevice <> prKorsar then
+        Exit;
+
+     FormViewRMS.ShowRMS(aDevice, pntr);
+     FormViewRMS.Show();
+
+end;
+
+
+
 procedure TFormTestImport.ButtonGetListClick(Sender: TObject);
 begin
     StopLink := False;
@@ -385,17 +462,27 @@ begin
 
 end;
 
-procedure TFormTestImport.ButtonGetMeasurementClick(Sender: TObject);
-var pntr: PLinkList;
+procedure TFormTestImport.ButtonViewMeasurementClick(Sender: TObject);
+var WaveMeas: PLinkList;
+    RMSMeas: PKorsarFrameWrite;
 begin
 if FormTestImport.LogText.ItemIndex < 0 then
    Exit;
 
 StopLink := False;
 
-pntr:=PLinkList(LogText.Items.Objects[FormTestImport.LogText.ItemIndex]);
-if (pntr^.Types = equFatTypeData) then
-   ShowMeasurementGraph(Info.Pribor, pntr);
+if Pos('RMS', LogText.Items.Strings[FormTestImport.LogText.ItemIndex])>0 then begin
+   // Просмотр замера СКЗ для ПО Аврора
+   RMSMeas:=PKorsarFrameWrite(LogText.Items.Objects[FormTestImport.LogText.ItemIndex]);
+   ShowMeasurementRMS(Info.Pribor, RMSMeas);
+
+end else
+    if Pos('Measurement', LogText.Items.Strings[FormTestImport.LogText.ItemIndex])>0 then begin
+        // Просмотр сигнала/спектра для ПО Атлант
+        WaveMeas:=PLinkList(LogText.Items.Objects[FormTestImport.LogText.ItemIndex]);
+        if (WaveMeas^.Types = equFatTypeData) then
+           ShowMeasurementGraph(Info.Pribor, WaveMeas);
+    end;
 end;
 
 procedure TFormTestImport.ButtonStopClick(Sender: TObject);

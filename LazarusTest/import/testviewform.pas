@@ -74,6 +74,9 @@ begin
   if (aDevice = prDiana2Rev2) then begin
      res := ImportKorsarM(aFilePath, aDevice, ListBoxData);
   end else
+  if (aDevice = prKorsar) then begin
+     res := ImportKorsarM(aFilePath, aDevice, ListBoxData);
+  end else
   if (aDevice = prViana1) then begin
      res := DoImportViana1(aFilePath, aDevice, ListBoxData);
   end else

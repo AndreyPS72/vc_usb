@@ -13,7 +13,7 @@ object FormTestImport: TFormTestImport
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.99.0.0'
   object ButtonClose: TButton
     Left = 456
     Height = 76
@@ -49,7 +49,7 @@ object FormTestImport: TFormTestImport
     Left = 32
     Height = 76
     Top = 112
-    Width = 320
+    Width = 176
     Caption = 'Get List'
     OnClick = ButtonGetListClick
     TabOrder = 3
@@ -63,13 +63,13 @@ object FormTestImport: TFormTestImport
     Step = 1
     TabOrder = 4
   end
-  object ButtonGetMeasurement: TButton
+  object ButtonViewMeasurement: TButton
     Left = 32
     Height = 76
     Top = 200
     Width = 320
-    Caption = 'Get Measurement'
-    OnClick = ButtonGetMeasurementClick
+    Caption = 'View Measurement'
+    OnClick = ButtonViewMeasurementClick
     TabOrder = 5
   end
   object ButtonStop: TButton
@@ -80,5 +80,14 @@ object FormTestImport: TFormTestImport
     Caption = 'Stop'
     OnClick = ButtonStopClick
     TabOrder = 6
+  end
+  object ButtonGetList1: TButton
+    Left = 224
+    Height = 76
+    Top = 112
+    Width = 128
+    Caption = 'Get RMS List'
+    OnClick = ButtonGetList1Click
+    TabOrder = 7
   end
 end
