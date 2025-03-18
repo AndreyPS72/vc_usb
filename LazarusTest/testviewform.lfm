@@ -1,0 +1,50 @@
+object FormViewMeasurement: TFormViewMeasurement
+  Left = -858
+  Height = 512
+  Top = 75
+  Width = 736
+  Caption = 'View Measurements'
+  ClientHeight = 512
+  ClientWidth = 736
+  DesignTimePPI = 120
+  Font.Height = 24
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  Position = poMainFormCenter
+  LCLVersion = '2.2.0.4'
+  object ChartMeasurement: TChart
+    Left = 0
+    Height = 392
+    Top = 120
+    Width = 736
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Align = alClient
+    object MeasurementSeries: TLineSeries
+    end
+  end
+  object ListBoxData: TListBox
+    Left = 0
+    Height = 120
+    Top = 0
+    Width = 736
+    Align = alTop
+    ItemHeight = 0
+    OnClick = ListBoxDataClick
+    TabOrder = 1
+  end
+end

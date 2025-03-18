@@ -25,7 +25,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir);import"/>
-            <OtherUnitFiles Value="import"/>
+            <OtherUnitFiles Value="..\import"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -89,24 +89,11 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="import\LinkTypes.pas"/>
+        <Filename Value="testimportform.lfm"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="import\linktestport.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="LinkTestPort"/>
-      </Unit>
-      <Unit>
-        <Filename Value="import\testviewform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FormViewMeasurement"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="TestViewForm"/>
-      </Unit>
-      <Unit>
-        <Filename Value="import\testimportform.pas"/>
+        <Filename Value="testimportform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormTestImport"/>
         <HasResources Value="True"/>
@@ -114,11 +101,136 @@
         <UnitName Value="TestImportForm"/>
       </Unit>
       <Unit>
-        <Filename Value="import\testviewrmsform.pas"/>
+        <Filename Value="testviewform.lfm"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testviewform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormViewMeasurement"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TestViewForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testviewrmsform.lfm"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testviewrmsform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormViewRMS"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TestViewRMSForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\DBox.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\DEFS.PAS"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\DefsPhaseTable.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportAuroraDefs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportDefs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportDPK.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportKorsar.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportViana1.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportViana2.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportViana4.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\ImportVV2.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkDefs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkLang.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkParamsDefs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkPortClass.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\linktestport.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LinkTestPort"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkTypes.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkTypesViana.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkTypesViana2.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkTypesViana4.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkTypesVV2.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\LinkUtil.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\NEWDateTime.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\phrases.ru.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\StrConst.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Strconst"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\VCUSBHdr.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\import\Zamhdr.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>
@@ -129,8 +241,8 @@
       <Filename Value="TestImport"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);import"/>
-      <OtherUnitFiles Value="import"/>
+      <IncludeFiles Value="$(ProjOutDir);..\import"/>
+      <OtherUnitFiles Value="..\import"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
@@ -160,7 +272,6 @@
         <GenerateDebugInfo Value="False"/>
         <RunWithoutDebug Value="True"/>
         <DebugInfoType Value="dsDwarf3"/>
-        <UseHeaptrc Value="True"/>
       </Debugging>
       <Options>
         <Win32>

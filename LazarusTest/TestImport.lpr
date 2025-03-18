@@ -10,8 +10,12 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, LinkTypes,
-  TestViewForm, TestImportForm, TestViewRMSForm;
+  Forms, TestImportForm, TestViewForm, TestViewRMSForm, DBox, DEFS,
+  DefsPhaseTable, ImportAuroraDefs, ImportDefs, ImportDPK, ImportKorsar,
+  ImportViana1, ImportViana2, ImportViana4, ImportVV2, LinkDefs, LinkLang,
+  LinkParamsDefs, LinkPortClass, LinkTestPort, LinkTypes, LinkTypesViana,
+  LinkTypesViana2, LinkTypesViana4, LinkTypesVV2, LinkUtil, NEWDateTime,
+  Strconst, VCUSBHdr, Zamhdr, tachartlazaruspkg;
 
 {$R *.res}
 
@@ -24,7 +28,7 @@ begin
 
 
   RequireDerivedFormResource:=True;
-  Application.Scaled:=True;
+    Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TFormTestImport, FormTestImport);
   Application.CreateForm(TFormViewMeasurement, FormViewMeasurement);
